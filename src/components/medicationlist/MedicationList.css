@@ -1,0 +1,44 @@
+.medication-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+.medication-list .card {
+    color: #000;
+    background: lightgray;
+    padding: 2rem;
+    width: 275px;
+    height: 250px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    transition: 0.2s;
+}
+  
+.medication-list .card:hover {
+    transform: scale(1.1);
+}
+
+.medication-list .card h3 {
+    margin-bottom: 0.7rem;
+    font-size: 1.5rem;
+}
+
+.medication-list .card p {
+  font-size: 1.1rem;
+}
+
+.medication-list .card p:nth-last-child(2) {
+  margin-bottom: 0.7rem;
+}
+
+.medication-list .card span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+.medication-list .card .instructions {
+  font-size: 1rem;
+}
