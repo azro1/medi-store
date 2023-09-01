@@ -72,10 +72,18 @@ html, body, #root {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Changa', sans-serif;
 }
 
 .loading, .error {
   text-align: center;
-  margin: 2.5rem 0
+  margin: 2.5rem 0;
+  font-size: 1.3rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  margin: 2.5rem 0;
+  font-size: 2rem;
 }

@@ -1,0 +1,44 @@
+.medication {
+    max-width: 60vw;
+    margin: 0 auto;
+    padding-bottom: 1.5rem;
+}
+
+.medication h2 {
+    font-size: 2rem;
+    text-align: start;
+    margin-bottom: 0;
+}
+
+.medication .info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.medication .info .dates {
+    align-self: flex-end;
+    margin-top: 1.25rem;
+}
+
+.medication .info p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.medication .info span {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-left: 0.3rem;
+}
+
+.medication .info section:last-child p:first-child span::after {
+    content: ",";
+}
+
+.medication .info section p:first-child span:last-child::after {
+    content: "";
+}
