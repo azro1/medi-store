@@ -28,13 +28,9 @@ const Edit = () => {
     const { id } = useParams()
     const history = useHistory()
 
-    // first fetch the medication data using id of medication we get using useParams hook
     const { data, isPending, error } = useFetch(`http://localhost:3000/medications/${id}`)
-    
-    // for a PUT request we use the id just like POST and once again made edits to the custom hook to handle PUT requests and make use of the data property that is returned when request is completed (i have name the data medications as we used the name data to GET the medication)
     const { updateData, data: medications, isPending: loading, error: failure } = useFetch(`http://localhost:3000/medications/${id}`, "PUT")
   
-    // check for data then populate input fields with the data for the medication once using useEffect - the fields should then be editable
     useEffect(() => {
       if (data) {
         setName(data.name);
@@ -60,7 +56,6 @@ const Edit = () => {
     // form submit function
     const handleSubmit = (e) => {
       e.preventDefault()
-      // we are using controlled inputs tracking what user types in through input fields so when user edits data in fields we're using onchange to track those values which will update the state variables - we send those new state values in updateData function passed down from useFetch to make PUT request when form is submitted
       updateData({
         name,
         dosage,
@@ -90,6 +85,7 @@ const Edit = () => {
       setDoctorEmail('')
       setPharmacyName('')
       setPharmacyEmail('')
+      setNewIngredient('')
       setInstructions('')
       setStorage('')
       setSideEffects('')
@@ -121,7 +117,6 @@ const Edit = () => {
       }))
     }
 
-    // redirect user once data comes back after update using useEffect
     useEffect(() => {
         if (medications) {
           history.push('/')

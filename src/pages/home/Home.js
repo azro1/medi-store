@@ -13,7 +13,7 @@ const Home = () => {
     <div className="home">
        <h1 className="page-title">Your Medications</h1>
        {error && <p className="error">{error}</p>}
-       {isPending && <p>please wait...</p>}
+       {isPending && <p className="loading">please wait...</p>}
        {data && <MedicationList medications={data} />}
     </div>
   )
