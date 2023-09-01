@@ -1,6 +1,6 @@
 .navbar {
     padding: 1.5rem;
-    background: #000;
+    background: #141414
 }
 
 .navbar nav {
@@ -30,7 +30,11 @@
     margin-left: 0.5rem;
 }
 
-.navbar a:last-child {
+.navbar nav .search-add {
+    display: flex;
+}
+
+.navbar .search-add a {
     font-family: 'Work Sans', sans-serif;
     border: 0.125rem solid #fff;
     padding: 0.8rem 0.9rem;
@@ -38,11 +42,38 @@
     border-radius: 0.5rem;
     color: #fff;
     font-size: 1rem;
-    color: #fff;
-    font-weight: 900;
+    font-weight: 700;
     transition: 0.1s;
 }
 
-.navbar a:last-child:hover {
-    background: #0000CD;
+.navbar .search-add a:hover {
+    background: #4169E1;
+}
+
+/* media queries */
+@media only screen and (max-width: 960px)  {
+    .navbar nav .search-add {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .navbar .search-add a {
+        width: fit-content;
+        margin-top: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 712px)  {
+    .navbar nav {
+        flex-direction: column;
+        /* align-items: flex-start; */
+    }
+
+    .navbar a.storename {
+        margin: 0;
+    }
+
+    .navbar .search-add a {
+        align-self: center;
+    }
 }

@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import storeLogo from '../../assets/logo.svg'
+import Searchbar from '../searchbar/Searchbar'
+
+// styles
 import './Navbar.css'
 
 const Navbar = () => {
@@ -10,7 +13,10 @@ const Navbar = () => {
             <h1>MediStore</h1>
             <img src={storeLogo} alt="medication" />
             </Link>
-          <Link to="/create">Add Medication</Link>
+            <div className="search-add">
+              <Searchbar />
+              <Link to="/create">Add Medication</Link>
+            </div>
         </nav>
     </div>
   )
