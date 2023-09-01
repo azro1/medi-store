@@ -87,3 +87,14 @@ html, body, #root {
   margin: 2.5rem 0;
   font-size: 2rem;
 }
+
+
+/* dark mode */
+.page-title.dark {
+  color: #e4e4e4;
+}
+
+.loading.dark, 
+.error.dark {
+  color: #e4e4e4;
+}

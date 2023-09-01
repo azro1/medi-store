@@ -69,3 +69,11 @@
     font-weight: 900;
     cursor: pointer;
 }
+
+
+/* dark mode */
+.edit-form.dark .form-control label span,
+.edit-form.dark .form-control p,
+.edit-form.dark .form-control em {
+    color: #e4e4e4;
+}

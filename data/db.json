@@ -1,29 +1,7 @@
 {
   "medications": [
     {
-      "name": "Loperamide",
-      "dosage": "500mg",
-      "dosageForm": "Tablet",
-      "frequency": "Four times a day",
-      "adminRoute": "Oral",
-      "startDate": "2023-08-17",
-      "endDate": "2023-09-29",
-      "doctorName": "Dr James Lindsay",
-      "doctorEmail": "jameslindsay@gmail.com",
-      "pharmacyName": "Clinimed",
-      "pharmacyEmail": "clinimed@aol.com",
-      "contains": [
-        "iron",
-        "magnesium"
-      ],
-      "instructions": "Take with water after a big meal. Take plenty of rest. Do not exceed the dose. Keep away from small children.",
-      "storage": "Store away from direct sunlight",
-      "sideEffects": "Dizzyness, Headaches, Drowsiness",
-      "warning": "Keep away from children",
-      "id": 1
-    },
-    {
-      "name": "Paracetamol",
+      "name": "Iodine",
       "dosage": "2mg",
       "dosageForm": "tablet",
       "frequency": "3 times a day",
@@ -36,8 +14,7 @@
       "pharmacyEmail": "warrickpharmacy@gmail.com",
       "contains": [
         "magnesium",
-        "sulphur",
-        "potassium"
+        "sulphur"
       ],
       "instructions": "Take twice a day with meals. Do not exceed dose. If you feel tired after taking consult the doctor",
       "storage": "Store in a cupboard away from direct light",
@@ -71,7 +48,7 @@
       "dosage": "250mg",
       "dosageForm": "Capsule",
       "frequency": "Three times a day",
-      "adminRoute": "Oral",
+      "adminRoute": "IV",
       "startDate": "2023-09-01",
       "endDate": "2023-09-10",
       "doctorName": "Dr. Smith",
@@ -206,7 +183,7 @@
     {
       "name": "Simvastatin",
       "dosage": "20mg",
-      "dosageForm": "Tablet",
+      "dosageForm": "Capsule",
       "frequency": "Once daily in the evening",
       "adminRoute": "Oral",
       "startDate": "2023-09-20",
@@ -225,6 +202,6 @@
       "sideEffects": "Muscle pain, fatigue",
       "warning": "Contact your doctor if you experience severe muscle pain or dark urine.",
       "id": 10
-    }    
+    }
   ]
 }

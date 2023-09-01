@@ -44,3 +44,14 @@
 .medication-list .card .instructions {
   font-size: 1rem;
 }
+
+
+/* dark mode */
+.medication-list .card.dark {
+  background: #555;
+}
+.medication-list .card.dark h3, 
+.medication-list .card.dark p,
+.medication-list .card.dark span {
+  color: #e4e4e4;
+}

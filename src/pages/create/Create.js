@@ -2,6 +2,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch'
+import { useTheme } from '../../hooks/useTheme';
+
 
 import './Create.css';
 
@@ -28,6 +30,7 @@ const Create = () => {
   const history = useHistory()
 
   const { postData, data, isPending, error} = useFetch('http://localhost:3000/medications', "POST") 
+  const { mode } = useTheme()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -85,10 +88,12 @@ const Create = () => {
   }, [data, history])
 
   return (
-    <form className='medication-form' onSubmit={handleSubmit}>
-      <h1 className='page-title'>Add a new Medication</h1>
-      {error && <p className="error">{error}</p>}
-      {isPending && <p>please wait...</p>}
+     // dynamically added class for mode state to medication-form which we check for and style differently in css
+    <form className={`medication-form ${mode}`} onSubmit={handleSubmit}>
+      {/* dynamically added class for mode state to page-title, error & loading which we check for and style differently in index.css global stylesheet */}
+      <h1 className={`page-title ${mode}`}>Add a new Medication</h1>
+      {error && <p className={`error ${mode}`}>{error}</p>}
+      {isPending && <p className={`loading ${mode}`}>please wait...</p>}
       <div className='form-control'>
         <label>
           <span>Name:</span>

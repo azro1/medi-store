@@ -1,6 +1,8 @@
 import { useRef, useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch';
+import { useTheme } from '../../hooks/useTheme';
+
 
 // styles
 import './Edit.css'
@@ -30,6 +32,7 @@ const Edit = () => {
 
     const { data, isPending, error } = useFetch(`http://localhost:3000/medications/${id}`)
     const { updateData, data: medications, isPending: loading, error: failure } = useFetch(`http://localhost:3000/medications/${id}`, "PUT")
+    const { mode } = useTheme()
   
     useEffect(() => {
       if (data) {
@@ -124,12 +127,14 @@ const Edit = () => {
     }, [medications, history])
 
     return (
-      <form className="edit-form" onSubmit={handleSubmit}>
-        <h1 className="page-title">Edit Medication</h1>
-        {error && <p className="error">{error}</p>}
-        {isPending && <p className="loading">please wait...</p>}
-        {failure && <p className="error">{failure}</p>}
-        {loading && <p className="loading">please wait...</p>}
+     // dynamically added class for mode state to edit-form which we check for and style differently in css
+      <form className={`edit-form ${mode}`} onSubmit={handleSubmit}>
+      {/* dynamically added class for mode state to page-title, error & loading which we check for and style differently in index.css global stylesheet */}
+        <h1 className={`page-title ${mode}`}>Edit Medication</h1>
+        {error && <p className={`error ${mode}`}>{error}</p>}
+        {isPending && <p className={`loading ${mode}`}>please wait...</p>}
+        {failure && <p className={`error ${mode}`}>{failure}</p>}
+        {loading && <p className={`loading ${mode}`}>please wait...</p>}
         <div className='form-control'>
           <label>
             <span>Name:</span>

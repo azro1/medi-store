@@ -61,3 +61,11 @@
     font-size: 0.9rem;
     color: #000;
 }
+
+
+/* dark mode */
+.medication-form.dark .form-control label span,
+.medication-form.dark .form-control p,
+.medication-form.dark .form-control em {
+    color: #e4e4e4;
+}

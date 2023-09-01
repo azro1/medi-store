@@ -1,6 +1,8 @@
 import { useParams, useHistory, Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import useFetch from '../../hooks/useFetch'
+import { useTheme } from '../../hooks/useTheme'
+
 
 // styles
 import './Medication.css'
@@ -8,10 +10,11 @@ import './Medication.css'
 const Medication = () => {
 const { id } = useParams()
 const { data: medication, isPending, error } = useFetch(`http://localhost:3000/medications/${id}`)
-
 const { deleteData, data } = useFetch(`http://localhost:3000/medications/${id}`, "DELETE")
 const history = useHistory()
+const { mode } = useTheme()
 
+// delete medication
 const handleDelete = async () => {
   deleteData()
 }
@@ -28,12 +31,14 @@ useEffect(() => {
 }, [data, error, history])
 
   return (
-    <div className="medication">
-       {isPending && <p className="loading">please wait...</p>}
-       {error && <div className="error">{error}</div>}
-       {medication && (
+    // dynamically added class for mode state to medication which we check for and style differently in css
+    <div className={`medication ${mode}`}>
+        {/* dynamically added class for mode state to loading, error & page-title which we check for and style differently in index.css global stylesheet  */}
+        {isPending && <p className={`loading ${mode}`}>please wait...</p>}
+        {error && <p style={{position: "relative", top: "1rem"}} className={`error ${mode}`}>{error}</p>}
+        {medication && (
         <>
-        <h2 className="page-title">{medication.name}</h2>
+        <h2 className={`page-title ${mode}`}>{medication.name}</h2>
   
         <div className="info">
             <div className="dates">
