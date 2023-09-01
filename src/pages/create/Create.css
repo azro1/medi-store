@@ -4,9 +4,9 @@
     padding-bottom: 1.25rem;
  }
 
- .medication-form h1 {
+ /* .medication-form h1 {
     line-height: 1.3;
- }
+ } */
  
  .medication-form .form-control {
      max-width: 31.25rem;
@@ -28,6 +28,18 @@
      font-size: 1rem;
      outline: none;
  }
+
+ .medication-form .form-control .ingredients {
+    display: flex;  
+    align-items: center;
+}
+
+.medication-form .form-control .ingredients .form-btn {
+    margin-left: 0.625rem;
+    position: relative;
+    top: -0.45rem;
+}
+
  .medication-form .form-control .form-btn {
      width: 30%;
      padding: 0.825rem;
@@ -37,3 +49,15 @@
      cursor: pointer;
  }
  
+ .medication-form .form-control p {
+    margin-bottom: 1.875rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.medication-form .form-control em {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #000;
+}

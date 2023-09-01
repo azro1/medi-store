@@ -11,6 +11,7 @@ const Home = () => {
 
   return (
     <div className="home">
+       <h1 className="page-title">Your Medications</h1>
        {error && <p className="error">{error}</p>}
        {isPending && <p>please wait...</p>}
        {data && <MedicationList medications={data} />}

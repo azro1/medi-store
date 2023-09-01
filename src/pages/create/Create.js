@@ -1,5 +1,5 @@
 // styles
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './Create.css';
 
 const Create = () => {
@@ -14,15 +14,31 @@ const Create = () => {
   const [doctorEmail, setDoctorEmail] = useState('');
   const [pharmacyName, setPharmacyName] = useState('');
   const [pharmacyEmail, setPharmacyEmail] = useState('');
-  // const [contains, setContains] = useState('');
   const [instructions, setInstructions] = useState('');
   const [storage, setStorage] = useState('');
   const [sideEffects, setSideEffects] = useState('');
   const [warning, setWarning] = useState('');
 
+  const [newIngredient, setNewIngredient] = useState('');
+  const [contains, setContains] = useState([]);
+  const ingredientInput = useRef(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, dosage, dosageForm);
+    console.log(name, dosage, dosageForm, contains);
+  };
+
+  // handleAdd function for when a user adds a new ingredient we take that ingredient and add it into the contains array - first trim the value which removes any whitespace from both ends of string and then check if the ingredient that the user has enetered is not already present inside of the contains state array - if it isn't then we add it by using the setContains function to update the contains state which is an array - we take the previous state into the function and return a new array speading the previous state and also adding the new ingredient inside the array
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    const ing = newIngredient.trim();
+
+    if (ing && !contains.includes(ing)) {
+      setContains((prevIngredients) => [...prevIngredients, ing]);
+    }
+    setNewIngredient('');
+    ingredientInput.current.focus();
   };
 
   return (
@@ -35,7 +51,7 @@ const Create = () => {
             type='text'
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -44,7 +60,7 @@ const Create = () => {
             type='text'
             value={dosage}
             onChange={(e) => setDosage(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -53,7 +69,7 @@ const Create = () => {
             type='text'
             value={dosageForm}
             onChange={(e) => setDosageForm(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -62,7 +78,7 @@ const Create = () => {
             type='text'
             value={frequency}
             onChange={(e) => setFrequency(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -71,7 +87,7 @@ const Create = () => {
             type='text'
             value={adminRoute}
             onChange={(e) => setAdminRoute(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -80,7 +96,7 @@ const Create = () => {
             type='date'
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -89,7 +105,7 @@ const Create = () => {
             type='date'
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -98,7 +114,7 @@ const Create = () => {
             type='text'
             value={doctorName}
             onChange={(e) => setDoctorName(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -107,7 +123,7 @@ const Create = () => {
             type='email'
             value={doctorEmail}
             onChange={(e) => setDoctorEmail(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -116,7 +132,7 @@ const Create = () => {
             type='text'
             value={pharmacyName}
             onChange={(e) => setPharmacyName(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -125,11 +141,35 @@ const Create = () => {
             type='email'
             value={pharmacyEmail}
             onChange={(e) => setPharmacyEmail(e.target.value)}
-            required
+            // required
           />
         </label>
 
-        {/* medication ingredients go here */}
+        {/* adding ingredients */}
+
+        <label>
+          <span>Ingredients:</span>
+          <div className='ingredients'>
+            <input
+              type='text'
+              value={newIngredient}
+              ref={ingredientInput}
+              onChange={(e) => setNewIngredient(e.target.value)}
+            />
+            <button onClick={handleAdd} className='form-btn'>
+              Add
+            </button>
+          </div>
+        </label>
+
+        <p>
+          Current ingredients:{' '}
+          {contains.map((ingredient) => (
+            <em key={ingredient}>{ingredient}, </em>
+          ))}
+        </p>
+
+        {/* adding ingredients */}
 
         <label>
           <span>Instructions:</span>
@@ -137,7 +177,7 @@ const Create = () => {
             type='text'
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -146,7 +186,7 @@ const Create = () => {
             type='text'
             value={storage}
             onChange={(e) => setStorage(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -155,7 +195,7 @@ const Create = () => {
             type='text'
             value={sideEffects}
             onChange={(e) => setSideEffects(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -164,7 +204,7 @@ const Create = () => {
             type='text'
             value={warning}
             onChange={(e) => setWarning(e.target.value)}
-            required
+            // required
           />
         </label>
         <button className='form-btn'>Add</button>
