@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 
-/* Apdapted the custom hook again to make a DELETE request for the Medication page component by creating a second function called deleteData inside of the hook and using the setOptions function to update the state when the function is called. The state value will be updated to an object that just contains the request method which will then be passed to fetch as it's second argument after checking if method is DELETE and we have a value for the options state. The function has to also be returned from the hook in order for it to be called inside of the Medication page component */
-
 const useFetch = (url, method="GET") => {
     const [data, setData] = useState(null)
     const [isPending, setIsPending] = useState(false)

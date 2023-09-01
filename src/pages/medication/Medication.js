@@ -9,16 +9,13 @@ const Medication = () => {
 const { id } = useParams()
 const { data: medication, isPending, error } = useFetch(`http://localhost:3000/medications/${id}`)
 
-//  the hook has been edited again to handle DELETE requests so we specify DELETE as the second argument and we just invoke the deleteData function that is passed down from the hook - we and also make use of the data property again that is returned after the request is complete to redirect the user
 const { deleteData, data } = useFetch(`http://localhost:3000/medications/${id}`, "DELETE")
 const history = useHistory()
 
-// delete medication
 const handleDelete = async () => {
   deleteData()
 }
 
-// redirect the user when data comes back using useEffect 
 useEffect(() => {
   if (data) {
      history.push("/")
@@ -68,7 +65,6 @@ useEffect(() => {
               <p>Advice: <span>{medication.warning}</span></p>
             </section>
           </div>
-          {/* add button for delete request */}
           <button className="delete" onClick={handleDelete} >Delete</button> 
         </>
        )}
