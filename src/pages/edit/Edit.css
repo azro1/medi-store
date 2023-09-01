@@ -1,4 +1,71 @@
-.edit {
+.edit-form{
     max-width: 85vw;
     margin: 0 auto;
+    padding-bottom: 1.25rem;
+}
+
+.edit-form .form-control {
+    max-width: 31.25rem;
+    margin: 0 auto;
+}
+
+.edit-form .form-control label span {
+    position: relative;
+    font-weight: 600;
+    top: 0.1rem;
+}
+
+.edit-form .form-control input {
+    display: block;
+    width: 100%;
+    padding: 0.825rem;
+    margin-bottom: 0.938rem;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    outline: none;
+}
+
+.edit-form .ingredients {
+    display: flex;  
+    align-items: center;
+}
+
+.edit-form .ingredients .add-btn {
+    margin-left: 0.625rem;
+    position: relative;
+    top: -0.45rem;
+}
+
+.edit-form .ingredients .delete-btn {
+    margin-left: 0.625rem;
+    position: relative;
+    top: -0.45rem;
+    width: 30%;
+    cursor: pointer;
+    padding: 0.825rem;
+    background: #FF0000;
+    color: #fff;
+    font-weight: 900;
+}
+
+.edit-form .form-control p {
+    margin-bottom: 1.875rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.edit-form .form-control em {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.edit-form .add-btn {
+    width: 30%;
+    padding: 0.825rem;
+    background: #000;
+    color: #fff;
+    font-weight: 900;
+    cursor: pointer;
 }

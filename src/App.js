@@ -29,10 +29,11 @@ function App() {
           <Route path="/create">
             <Create />
           </Route>
-          <Route exact path="/medications/:id">
+          {/* removed exact props on medications and edit as this was overlooked and is not needed - exact should only be used on the Home path "/ " as this is the first route path that the React Router checks and will match all other route paths because / is inside all other route paths */}
+          <Route path="/medications/:id">
             <Medication />
           </Route>
-          <Route exact path="/edit/:id">
+          <Route path="/edit/:id">
             <Edit />
           </Route>
         </Switch>

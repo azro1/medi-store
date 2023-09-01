@@ -70,13 +70,10 @@ useEffect(() => {
               <p>Advice: <span>{medication.warning}</span></p>
             </section>
           </div>
-
           <div className="buttons">
               <button className="delete" onClick={handleDelete} >Delete</button> 
-              {/* added edit Link component styled as a button and set its path using id dynamic variable */}
               <Link className="editBtn" to={`/edit/${id}`} >Edit</Link>
           </div>
-          
         </>
        )}
     </div>
