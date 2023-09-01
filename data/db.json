@@ -1,0 +1,71 @@
+{
+  "medications": [
+    {
+      "name": "Loperamide",
+      "dosage": "2mg",
+      "dosageForm": "Tablet",
+      "frequency": "Four times a day",
+      "adminRoute": "Oral",
+      "startDate": "2023-08-17",
+      "endDate": "2023-09-29",
+      "doctorName": "Dr James Lindsay",
+      "doctorEmail": "jameslindsay@gmail.com",
+      "pharmacyName": "Clinimed",
+      "pharmacyEmail": "clinimed@aol.com",
+      "contains": [
+        "iron",
+        "roboflavin"
+      ],
+      "instructions": "Take with water after a big meal. Take plenty of rest. Do not exceed the dose. Keep away from small children.",
+      "storage": "Store away from direct sunlight",
+      "sideEffects": "Dizzyness, Headaches, Drowsiness",
+      "warning": "Keep away from children",
+      "id": 1
+    },
+    {
+      "name": "Codine",
+      "dosage": "2mg",
+      "dosageForm": "tablet",
+      "frequency": "3 times a day",
+      "adminRoute": "oral",
+      "startDate": "2023-08-25",
+      "endDate": "2023-10-27",
+      "doctorName": "Dr Patel",
+      "doctorEmail": "rishanpatel@gmail.com",
+      "pharmacyName": "Warrick Pharmacy",
+      "pharmacyEmail": "warrickpharmacy@gmail.com",
+      "contains": [
+        "magnesium",
+        "sulphur",
+        "potassium"
+      ],
+      "instructions": "Take twice a day with meals. Do not exceed dose. If you feel tired after taking consult the doctor",
+      "storage": "Store in a cupboard away from direct light",
+      "sideEffects": "Headaches, Fatigue",
+      "warning": "Do not swallow whole",
+      "id": 2
+    },
+    {
+      "name": "CalciumPlus D3",
+      "dosage": "600mg",
+      "dosageForm": "Tablet",
+      "frequency": "Once daily",
+      "adminRoute": "Oral",
+      "startDate": "2023-09-10",
+      "endDate": "2023-10-10",
+      "doctorName": "Dr. Johnson",
+      "doctorEmail": "drjohnson@example.com",
+      "pharmacyName": "HealthVital",
+      "pharmacyEmail": "info@healthvital.com",
+      "contains": [
+      "calcium",
+      "vitamin D3"
+      ],
+      "instructions": "Take with a glass of water. Do not crush or chew the tablet.",
+      "storage": "Store in a dry place",
+      "sideEffects": "Constipation, Nausea",
+      "warning": "Consult a healthcare provider if you have a history of kidney stones",
+      "id": 3
+     }
+  ]
+}

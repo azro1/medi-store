@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'Changa';
+  src: url('./fonts/Changa/Changa-ExtraBold.woff2') format('woff2'),
+      url('./fonts/Changa/Changa-ExtraBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Changa';
+  src: url('./fonts/Changa/Changa-Medium.woff2') format('woff2'),
+      url('./fonts/Changa/Changa-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Changa';
+  src: url('./fonts/Changa/Changa-SemiBold.woff2') format('woff2'),
+      url('./fonts/Changa/Changa-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Changa';
+  src: url('./fonts/Changa/Changa-Bold.woff2') format('woff2'),
+      url('./fonts/Changa/Changa-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('./fonts/WorkSans/WorkSans-Light.woff2') format('woff2'),
+      url('./fonts/WorkSans/WorkSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('./fonts/WorkSans/WorkSans-Regular.woff2') format('woff2'),
+      url('./fonts/WorkSans/WorkSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('./fonts/WorkSans/WorkSans-Bold.woff2') format('woff2'),
+      url('./fonts/WorkSans/WorkSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
