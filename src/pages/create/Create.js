@@ -1,6 +1,7 @@
 // styles
-import { useState, useRef } from 'react';
-import useFetch from '../../hooks/useFetch';
+import { useState, useRef, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import useFetch from '../../hooks/useFetch'
 
 import './Create.css';
 
@@ -24,11 +25,11 @@ const Create = () => {
   const [newIngredient, setNewIngredient] = useState('');
   const [contains, setContains] = useState([]);
   const ingredientInput = useRef(null);
+  const history = useHistory()
 
-  // using our custom hook to make a POST request to json file and now we need to pass in the method as a second argument because we made the edits in the hook
-  const { postData, isPending, error} = useFetch('http://localhost:3000/medications', "POST") 
+  // we make use of the data property that is returned from the hook after the POST request is complete to redirect user to the homepage
+  const { postData, data, isPending, error} = useFetch('http://localhost:3000/medications', "POST") 
 
-  // we call the postData function passed down from hook passing in form data when form is submitted
   const handleSubmit = (e) => {
     e.preventDefault();
     postData({      
@@ -77,6 +78,13 @@ const Create = () => {
     setNewIngredient('');
     ingredientInput.current.focus();
   };
+
+  // redirect user when we get data response using useEffect
+  useEffect(() => {
+    if (data) {
+      history.push("/")
+    }
+  }, [data, history])
 
   return (
     <form className='medication-form' onSubmit={handleSubmit}>

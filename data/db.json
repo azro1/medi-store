@@ -89,6 +89,50 @@
       "sideEffects": "Headaches",
       "warning": "Keep away from children",
       "id": 4
+    },
+    {
+      "name": "Paracetamol",
+      "dosage": "500mg",
+      "dosageForm": "Tablet",
+      "frequency": "Twice a day",
+      "adminRoute": "Oral",
+      "startDate": "2023-09-16",
+      "endDate": "2023-11-10",
+      "doctorName": "Dr Lindsay",
+      "doctorEmail": "jameslindsay@barts.com",
+      "pharmacyName": "Pharmocare",
+      "pharmacyEmail": "pharmocare@bigpharm.com",
+      "contains": [
+        "potassium",
+        "zinc"
+      ],
+      "instructions": "Take twice a day with a jug of water. Take plenty of rest. Consult your doctor if feeling sick.",
+      "storage": "Store away from direct sunlight",
+      "sideEffects": "Headache, Nausea",
+      "warning": "Keep away from children",
+      "id": 5
+    },
+    {
+      "name": "Loperamide",
+      "dosage": "2mg",
+      "dosageForm": "Tablet",
+      "frequency": "Four times a day",
+      "adminRoute": "Oral",
+      "startDate": "2023-08-17",
+      "endDate": "2023-09-29",
+      "doctorName": "Dr James Lindsay",
+      "doctorEmail": "jameslindsay@gmail.com",
+      "pharmacyName": "Clinimed",
+      "pharmacyEmail": "clinimed@aol.com",
+      "contains": [
+        "iron",
+        "roboflavin"
+      ],
+      "instructions": "Take with water after a big meal. Take plenty of rest. Do not exceed the dose. Keep away from small children.",
+      "storage": "Store away from direct sunlight",
+      "sideEffects": "Dizzyness, Headaches, Drowsiness",
+      "warning": "Keep away from children",
+      "id": 6
     }
   ]
 }
