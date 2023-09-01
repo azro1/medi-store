@@ -5,8 +5,16 @@ const ThemeContext = createContext()
 
 // reducer function
 const themeReducer = (state, action) => {
+// so let's pass the action type into the switch statement to be evaluated and then inside that switch statement we can specify different cases - the case that we want to look for is when the value of the action type is 'CHANGE_COLOR' and then put a colon at the end
    switch(action.type) {
-
+      case 'CHANGE_COLOR':
+        // so now inside this case we can return an updated state object - so let's return a object first of all and then first i'm going to spread the current state properties into this object
+    
+        // Now, right now that's only the color property - but in the future there might be more properties as well and we need to add all of those properties to the new state value because if we don't then they just won't exist after the update happens - so we spread the properties of the current state object and then we can overwrite any other properties that we want to in this state update - in our case that going to be the color property and the value of that is going to be the payload on the action (see changeColor function) 
+        return { ...state, color: action.payload }
+        // and then finally we also need a default case in the switch statement to pass back a default value incase none of the cases matched and that default value is just going to be an unchanged state - the one we take into the reducer in the first place
+        default:
+            return state
    }
 }
 
@@ -19,12 +27,13 @@ const [state, dispatch] = useReducer(themeReducer, {
 
 // custom changeColor function
 const changeColor = (color) => {
+    // * remember we set the payload in the dispatch function to be the new color that we pass into this function *
     dispatch({ type: 'CHANGE_COLOR', payload: color })
 }
 
 
     return (
-        <ThemeContext.Provider value={{ color: "blue"}} >
+        <ThemeContext.Provider value={{ ...state, changeColor }} >
           { children }
         </ThemeContext.Provider>
     )
@@ -36,32 +45,22 @@ export {ThemeProvider, ThemeContext}
 
 
 
-
-// Let's imagaine that we want to change this color value in the state .. how do we do that? 
-
-// well first of all i'm going to create a function called changeColor and that takes in a color argument to whatever color we want to change it to and then inside this function i'm just going to call the dispatch function.
-
-// Now the dispatch function takes in an object as an argument which is referred to as the dispatch action and on that action object we can specify 2 properties:
-
-// 1. type - the type property basically describes the type of state change that we want to make and normally the is going to be a string CAPITALISED - so this is the type of state change that we want to make
-
-// 2. payload - the payload is any data that we want to base the state change on and in our case we want to pass the new color as the payload value
-
-// So now we're calling this dispatch function and we're passing in the action object with these 2 properties on it. 
-
-// Now, in turn when we use this dispatch function - react looks at the reducer function associated with that dispatch and it finds our themeReducer function and then it fires that function to make the state change inside of it.
+// so now we have the initial state value which is an object with a color property set to blue to begin with
+// if we want to change that color in the state we can call this changeColor function and pass in a new color
+// that's going to fire a dispatch where we specify the type and the payload on the action object
+// and in turn this fires the themeReducer function which takes in the current state and the action
+// we check the action type and if it's equal to 'CHANGE_COLOR' then we return a new state object with the new color value 
+// that then updates the state value that we get back from the useReducer hook
 
 
+// so now all we need to do is pass any values into the value prop of the provider that we want to provide to our components because currently we're just passing this object in that never changes..
 
-// Now the themeReducer function - when it's called using the dispatch function takes in 2 arguments:
+// we want to pass in the state object (which can change) and also the changeColor function so that we can call that function from other compoents
+// so to do that we pass in an object as the value first of all and then inside that object spread any state properties and also add on the changeColor property which is going to be the function
 
-// 1. state - the current up-to-date state
-// 2. action - the action object we passed into the dispatch call
+// so now, this should be an object with 2 properties:
 
-// So then we can use both of these 2 things to update the state. So all we need to do is return a value which represents the new state at the end. 
+// 1. color
+// 2. changeColor
 
-// So for example if i just returned a string that said "hello" then our state value would be updated to be just a string that said "hello" but we don't want to do that .. we want to check the type of state change that we want to make and the return an updated state based on that
-
-// Now, we passed the type of state change that we want to make into the dispatch on the action object and we have access to that action object inside of the reducer function - so we can check that type property and react accordinly to it
-
-// So the way that we'll be doing this is by using a switch statement to check the type property of the action and then based on different types we'll return different values
+// and now we've done that - let's try using it inside the Navbar component!

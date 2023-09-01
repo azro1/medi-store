@@ -7,14 +7,16 @@ import { useTheme } from '../../hooks/useTheme'
 import './Navbar.css'
 
 const Navbar = () => {
-const { color } = useTheme()
+// destructure our custom changeColor function from the hook
+const { color, changeColor } = useTheme()
 
   return (
     <div className="navbar" style={{ background: color }} >
         <nav>
           <Link to="/" className="storename">
             <h1>MediStore</h1>
-            <img src={storeLogo} alt="medication" />
+            {/* Add a click event handler to logo which when clicked invokes the changeColor function - we pass in a color of red which in turn gets passed into the dispatch function (ThemeContexxt.js) which then gets passed to the reducer function which returns an updated state object which gets passed to the Provider compoent */}
+            <img src={storeLogo} alt="medication" onClick={() => changeColor('red')} />
             </Link>
             <div className="search-add">
               <Searchbar />
