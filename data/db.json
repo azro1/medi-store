@@ -2,7 +2,7 @@
   "medications": [
     {
       "name": "Loperamide",
-      "dosage": "2mg",
+      "dosage": "500mg",
       "dosageForm": "Tablet",
       "frequency": "Four times a day",
       "adminRoute": "Oral",
@@ -13,8 +13,8 @@
       "pharmacyName": "Clinimed",
       "pharmacyEmail": "clinimed@aol.com",
       "contains": [
-        "iron",
-        "roboflavin"
+        "zinc",
+        "copper"
       ],
       "instructions": "Take with water after a big meal. Take plenty of rest. Do not exceed the dose. Keep away from small children.",
       "storage": "Store away from direct sunlight",
@@ -46,9 +46,9 @@
       "id": 2
     },
     {
-      "name": "CalciumPlus D3",
-      "dosage": "600mg",
-      "dosageForm": "Tablet",
+      "name": "Tamazipan",
+      "dosage": "500mg",
+      "dosageForm": "Capsule",
       "frequency": "Once daily",
       "adminRoute": "Oral",
       "startDate": "2023-09-10",
@@ -58,8 +58,7 @@
       "pharmacyName": "HealthVital",
       "pharmacyEmail": "info@healthvital.com",
       "contains": [
-        "calcium",
-        "vitamin D3"
+        "calcium"
       ],
       "instructions": "Take with a glass of water. Do not crush or chew the tablet.",
       "storage": "Store in a dry place",

@@ -16,6 +16,16 @@ const useFetch = (url, method="GET") => {
         })
     }
 
+    const updateData = (updatedData) => {
+        setOptions({
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedData)
+        })
+    }
+
     const deleteData = () => {
         setOptions({
             method: "DELETE"
@@ -50,7 +60,10 @@ const useFetch = (url, method="GET") => {
         if (method === "GET") {
             fetchData()
         }
-        if ((method === "POST" && options) || (method === "DELETE" && options)) {
+        if ((method === "POST" && options) || 
+        (method === "DELETE" && options) || 
+        (method === "PUT" && options)
+        ) {
            fetchData(options)
         }
         return () => {
@@ -58,7 +71,7 @@ const useFetch = (url, method="GET") => {
         }
     }, [url, method, options])
 
-    return { data, isPending, error, postData, deleteData }
+    return { data, isPending, error, postData, deleteData, updateData }
 
 }
 
