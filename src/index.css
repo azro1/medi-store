@@ -74,3 +74,8 @@ html, body, #root {
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.loading, .error {
+  text-align: center;
+  margin: 2.5rem 0
+}
