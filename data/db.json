@@ -58,14 +58,37 @@
       "pharmacyName": "HealthVital",
       "pharmacyEmail": "info@healthvital.com",
       "contains": [
-      "calcium",
-      "vitamin D3"
+        "calcium",
+        "vitamin D3"
       ],
       "instructions": "Take with a glass of water. Do not crush or chew the tablet.",
       "storage": "Store in a dry place",
       "sideEffects": "Constipation, Nausea",
       "warning": "Consult a healthcare provider if you have a history of kidney stones",
       "id": 3
-     }
+    },
+    {
+      "name": "Tramadol",
+      "dosage": "5mg",
+      "dosageForm": "Capsule",
+      "frequency": "Once",
+      "adminRoute": "Oral",
+      "startDate": "2023-09-02",
+      "endDate": "2023-10-25",
+      "doctorName": "Dr Phil",
+      "doctorEmail": "phil@medicine.com",
+      "pharmacyName": "pharma",
+      "pharmacyEmail": "bigpharma@clinimeds.com",
+      "contains": [
+        "zinc",
+        "copper",
+        "iron"
+      ],
+      "instructions": "Take one tablet with a glass of water",
+      "storage": "A dark place",
+      "sideEffects": "Headaches",
+      "warning": "Keep away from children",
+      "id": 4
+    }
   ]
 }

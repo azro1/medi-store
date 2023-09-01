@@ -1,5 +1,7 @@
 // styles
 import { useState, useRef } from 'react';
+import useFetch from '../../hooks/useFetch';
+
 import './Create.css';
 
 const Create = () => {
@@ -23,12 +25,47 @@ const Create = () => {
   const [contains, setContains] = useState([]);
   const ingredientInput = useRef(null);
 
+  // using our custom hook to make a POST request to json file and now we need to pass in the method as a second argument because we made the edits in the hook
+  const { postData, isPending, error} = useFetch('http://localhost:3000/medications', "POST") 
+
+  // we call the postData function passed down from hook passing in form data when form is submitted
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, dosage, dosageForm, contains);
-  };
+    postData({      
+      name,
+      dosage,
+      dosageForm,
+      frequency,
+      adminRoute,
+      startDate,
+      endDate,
+      doctorName,
+      doctorEmail,
+      pharmacyName,
+      pharmacyEmail,
+      contains,
+      instructions,
+      storage,
+      sideEffects,
+      warning
+    })
 
-  // handleAdd function for when a user adds a new ingredient we take that ingredient and add it into the contains array - first trim the value which removes any whitespace from both ends of string and then check if the ingredient that the user has enetered is not already present inside of the contains state array - if it isn't then we add it by using the setContains function to update the contains state which is an array - we take the previous state into the function and return a new array speading the previous state and also adding the new ingredient inside the array
+    setName('')
+    setDosage('')
+    setDosageForm('')
+    setFrequency('')
+    setAdminRoute('')
+    setStartDate('')
+    setEndDate('')
+    setDoctorName('')
+    setDoctorEmail('')
+    setPharmacyName('')
+    setPharmacyEmail('')
+    setInstructions('')
+    setStorage('')
+    setSideEffects('')
+    setWarning('')
+  };
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -44,6 +81,8 @@ const Create = () => {
   return (
     <form className='medication-form' onSubmit={handleSubmit}>
       <h1 className='page-title'>Add a new Medication</h1>
+      {error && <p className="error">{error}</p>}
+      {isPending && <p>please wait...</p>}
       <div className='form-control'>
         <label>
           <span>Name:</span>
@@ -144,9 +183,6 @@ const Create = () => {
             // required
           />
         </label>
-
-        {/* adding ingredients */}
-
         <label>
           <span>Ingredients:</span>
           <div className='ingredients'>
@@ -168,9 +204,6 @@ const Create = () => {
             <em key={ingredient}>{ingredient}, </em>
           ))}
         </p>
-
-        {/* adding ingredients */}
-
         <label>
           <span>Instructions:</span>
           <input
