@@ -1,4 +1,4 @@
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import useFetch from '../../hooks/useFetch'
 
@@ -20,7 +20,6 @@ useEffect(() => {
   if (data) {
      history.push("/")
   }
-  // rediirect user to Home if they try to access a medication in url that doesn't exist
   if (error) {
     setTimeout(() => {
       history.push('/')
@@ -71,7 +70,13 @@ useEffect(() => {
               <p>Advice: <span>{medication.warning}</span></p>
             </section>
           </div>
-          <button className="delete" onClick={handleDelete} >Delete</button> 
+
+          <div className="buttons">
+              <button className="delete" onClick={handleDelete} >Delete</button> 
+              {/* added edit Link component styled as a button and set its path using id dynamic variable */}
+              <Link className="editBtn" to={`/edit/${id}`} >Edit</Link>
+          </div>
+          
         </>
        )}
     </div>

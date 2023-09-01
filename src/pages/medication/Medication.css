@@ -36,16 +36,35 @@
 }
 
 .medication .info section:last-child p:first-child span::after {
-    content: ",";
+   content: ",";
 }
 
 .medication .info section p:first-child span:last-child::after {
-    content: "";
+   content: "";
 }
 
-.medication .delete {
+.medication .buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.medication .buttons .delete {
+   font-size: 1rem;
+   padding: 0.8rem 2rem;   
+   font-family: 'Work Sans', sans-serif;
+   border: 0.125rem solid #000;
+   text-decoration: none;
+   border-radius: 0.3rem;
+   background: #fff;
+   font-weight: 700;
+   color: #000;
+   transition: 0.2s;
+   cursor: pointer;
+}
+
+.medication .buttons a {
     font-size: 1rem;
-    padding: 0.8rem 2rem;   
+    padding: 0.8rem 2.7rem;   
     font-family: 'Work Sans', sans-serif;
     border: 0.125rem solid #000;
     text-decoration: none;
@@ -55,9 +74,29 @@
     color: #000;
     transition: 0.2s;
     cursor: pointer;
- }
+}
 
- .medication .delete:hover {
+.medication .buttons .delete:hover {
     background: #FF0000;
     color: #fff;
+}
+.medication .buttons a:hover {
+    background: #FFA500;
+    color: #fff;
+}
+
+
+/* media queries */
+@media only screen and (max-width: 712px)  {
+    .medication .info .dates {
+        align-self: flex-start;
+    }
+}
+
+@media only screen and (max-width: 425px)  {
+    .medication .buttons {
+       text-align: center;
+       flex-direction: column-reverse;
+       /* align-items: flex-start; */
+    }
 }

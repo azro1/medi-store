@@ -8,6 +8,8 @@ import Home from './pages/home/Home'
 import Search from './pages/search/Search'
 import Create from './pages/create/Create'
 import Medication from './pages/medication/Medication';
+import Edit from './pages/edit/Edit';
+
 
 //styles
 import './App.css';
@@ -30,8 +32,10 @@ function App() {
           <Route exact path="/medications/:id">
             <Medication />
           </Route>
+          <Route exact path="/edit/:id">
+            <Edit />
+          </Route>
         </Switch>
-        {/* Added Redirect component that will redirect user to Home if they try to go to a page that doesn't exist. React Router will start at the top of the Routes and try to match every path in turn. If no paths match - it will get to this path (which is a wildcard)  and will match it hence redirecting user to Home */}
         <Route path="*" >
             <Redirect to="/" />
           </Route>
