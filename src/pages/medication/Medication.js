@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import useFetch from '../../hooks/useFetch'
 import { useTheme } from '../../hooks/useTheme'
 
-
 // styles
 import './Medication.css'
 
@@ -31,9 +30,7 @@ useEffect(() => {
 }, [data, error, history])
 
   return (
-    // dynamically added class for mode state to medication which we check for and style differently in css
     <div className={`medication ${mode}`}>
-        {/* dynamically added class for mode state to loading, error & page-title which we check for and style differently in index.css global stylesheet  */}
         {isPending && <p className={`loading ${mode}`}>please wait...</p>}
         {error && <p style={{position: "relative", top: "1rem"}} className={`error ${mode}`}>{error}</p>}
         {medication && (

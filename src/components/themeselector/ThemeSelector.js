@@ -12,7 +12,6 @@ const ThemeSelector = () => {
   const handleToggleMode = () => {
     changeMode(mode === "light" ? "dark" : "light")
  }
-
   return (
     <div className="theme-selector">
        <div className="theme-buttons">

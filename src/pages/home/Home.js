@@ -13,7 +13,6 @@ const Home = () => {
 
   return (
     <div className="home">
-       {/* dynamically added classes for mode state to page-title, error & loading which we check for and style differently in index.css global stylesheet */}
        <h1 className={`page-title ${mode}`}>Your Medications</h1>
        {error && <p className={`error ${mode}`}>{error}</p>}
        {isPending && <p className={`loading ${mode}`}>please wait...</p>}

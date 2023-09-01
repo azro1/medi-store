@@ -3,7 +3,6 @@ import { useHistory, useParams } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch';
 import { useTheme } from '../../hooks/useTheme';
 
-
 // styles
 import './Edit.css'
 
@@ -127,9 +126,7 @@ const Edit = () => {
     }, [medications, history])
 
     return (
-     // dynamically added class for mode state to edit-form which we check for and style differently in css
       <form className={`edit-form ${mode}`} onSubmit={handleSubmit}>
-      {/* dynamically added class for mode state to page-title, error & loading which we check for and style differently in index.css global stylesheet */}
         <h1 className={`page-title ${mode}`}>Edit Medication</h1>
         {error && <p className={`error ${mode}`}>{error}</p>}
         {isPending && <p className={`loading ${mode}`}>please wait...</p>}
@@ -142,7 +139,7 @@ const Edit = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -151,7 +148,7 @@ const Edit = () => {
               type="text"
               value={dosage}
               onChange={(e) => setDosage(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -160,7 +157,7 @@ const Edit = () => {
               type="text"
               value={dosageForm}
               onChange={(e) => setDosageForm(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -169,7 +166,7 @@ const Edit = () => {
               type="text"
               value={frequency}
               onChange={(e) => setFrequency(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -178,7 +175,7 @@ const Edit = () => {
               type="text"
               value={adminRoute}
               onChange={(e) => setAdminRoute(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -187,7 +184,7 @@ const Edit = () => {
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -196,7 +193,7 @@ const Edit = () => {
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -205,7 +202,7 @@ const Edit = () => {
               type="text"
               value={doctorName}
               onChange={(e) => setDoctorName(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -214,7 +211,7 @@ const Edit = () => {
               type="email"
               value={doctorEmail}
               onChange={(e) => setDoctorEmail(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -223,7 +220,7 @@ const Edit = () => {
               type="text"
               value={pharmacyName}
               onChange={(e) => setPharmacyName(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -232,7 +229,7 @@ const Edit = () => {
               type="email"
               value={pharmacyEmail}
               onChange={(e) => setPharmacyEmail(e.target.value)}
-            //   required
+              required
             />
           </label>
   
@@ -267,7 +264,7 @@ const Edit = () => {
               type="text"
               value={instructions}
               onChange={(e) => setInstructions(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -276,7 +273,7 @@ const Edit = () => {
               type="text"
               value={storage}
               onChange={(e) => setStorage(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -285,7 +282,7 @@ const Edit = () => {
               type="text"
               value={sideEffects}
               onChange={(e) => setSideEffects(e.target.value)}
-            //   required
+              required
             />
           </label>
           <label>
@@ -294,7 +291,7 @@ const Edit = () => {
               type="text"
               value={warning}
               onChange={(e) => setWarning(e.target.value)}
-            //   required
+              required
             />
           </label>
           <button className='add-btn'>Add</button>
