@@ -1,5 +1,8 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+//components
+import Navbar from './components/navbar/Navbar';
+
 // pages
 import Home from './pages/home/Home'
 import Search from './pages/search/Search'
@@ -13,6 +16,7 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
+        <Navbar />
         <Switch>
           <Route exact path="/" >
             <Home />
