@@ -20,7 +20,13 @@ useEffect(() => {
   if (data) {
      history.push("/")
   }
-}, [data, history])
+  // rediirect user to Home if they try to access a medication in url that doesn't exist
+  if (error) {
+    setTimeout(() => {
+      history.push('/')
+    }, 2000)
+  }  
+}, [data, error, history])
 
   return (
     <div className="medication">

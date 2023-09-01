@@ -6,8 +6,6 @@ import MedicationList from '../../components/medicationlist/MedicationList'
 import './Search.css'
 
 const Search = () => {
-  // Accessing the query parameter from Searchbar page component using useLocation hook and using it to query the data using the custom hook. Once results come back we then re-use the MedicationList component in this file passing the data through to the medications prop where we are already using it (in MedicationList.js) to loop through and output data passed to it from the Home page component
-
   const queryString = useLocation().search
   const queryParams = new URLSearchParams(queryString)
   
