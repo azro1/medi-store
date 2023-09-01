@@ -42,3 +42,22 @@
 .medication .info section p:first-child span:last-child::after {
     content: "";
 }
+
+.medication .delete {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;   
+    font-family: 'Work Sans', sans-serif;
+    border: 0.125rem solid #000;
+    text-decoration: none;
+    border-radius: 0.3rem;
+    background: #fff;
+    font-weight: 700;
+    color: #000;
+    transition: 0.2s;
+    cursor: pointer;
+ }
+
+ .medication .delete:hover {
+    background: #FF0000;
+    color: #fff;
+}

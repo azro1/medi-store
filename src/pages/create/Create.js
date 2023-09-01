@@ -27,7 +27,6 @@ const Create = () => {
   const ingredientInput = useRef(null);
   const history = useHistory()
 
-  // we make use of the data property that is returned from the hook after the POST request is complete to redirect user to the homepage
   const { postData, data, isPending, error} = useFetch('http://localhost:3000/medications', "POST") 
 
   const handleSubmit = (e) => {
@@ -79,7 +78,6 @@ const Create = () => {
     ingredientInput.current.focus();
   };
 
-  // redirect user when we get data response using useEffect
   useEffect(() => {
     if (data) {
       history.push("/")
