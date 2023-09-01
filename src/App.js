@@ -1,14 +1,15 @@
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 //components
-import Navbar from './components/navbar/Navbar';
+import Navbar from './components/navbar/Navbar'
+import ThemeSelector from './components/themeselector/ThemeSelector'
 
 // pages
 import Home from './pages/home/Home'
 import Search from './pages/search/Search'
 import Create from './pages/create/Create'
-import Medication from './pages/medication/Medication';
-import Edit from './pages/edit/Edit';
+import Medication from './pages/medication/Medication'
+import Edit from './pages/edit/Edit'
 
 
 //styles
@@ -19,6 +20,7 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <Navbar />
+        <ThemeSelector />
         <Switch>
           <Route exact path="/">
             <Home />

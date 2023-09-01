@@ -1,0 +1,13 @@
+.theme-selector {
+    display: flex;
+    max-width: 85vw;
+    margin: 0 auto;
+}
+
+.theme-buttons div {
+    padding: 0.8rem;
+    cursor: pointer;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 1rem 0.7rem 0 0;
+}
