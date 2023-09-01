@@ -1,0 +1,39 @@
+.medication-form {
+    max-width: 85vw;
+    margin: 0 auto;
+    padding-bottom: 1.25rem;
+ }
+
+ .medication-form h1 {
+    line-height: 1.3;
+ }
+ 
+ .medication-form .form-control {
+     max-width: 31.25rem;
+     margin: 0 auto;
+ }
+ 
+ .medication-form .form-control label span {
+     position: relative;
+     font-weight: 600;
+     top: 0.1rem;
+ }
+ 
+ .medication-form .form-control input {
+     display: block;
+     width: 100%;
+     padding: 0.825rem;
+     margin-bottom: 0.938rem;
+     font-family: 'Work Sans', sans-serif;
+     font-size: 1rem;
+     outline: none;
+ }
+ .medication-form .form-control .form-btn {
+     width: 30%;
+     padding: 0.825rem;
+     background: #000;
+     color: #fff;
+     font-weight: 900;
+     cursor: pointer;
+ }
+ 
