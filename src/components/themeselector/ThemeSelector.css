@@ -11,3 +11,14 @@
     display: inline-block;
     margin: 1rem 0.7rem 0 0;
 }
+
+.theme-selector .mode-toggle {
+    margin-left: auto;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.theme-selector .mode-toggle img {
+    width: 1.875rem;
+    height: 1.875rem;
+}
