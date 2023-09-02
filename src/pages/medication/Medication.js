@@ -20,7 +20,7 @@ const handleDelete = async (id) => {
 
   // we use try catch block like we did in Create to just to catch any errors if there are any and we're using await inside of an async function to wait after it's deleted the object from the database then we redirect the user back to the Home page component
   try {
-    await projectFirestore.collection("medications").dodc(id).delete()
+    await projectFirestore.collection("medications").doc(id).delete()
     history.push('/')
   } catch (err) {
       console.log(err.message)
