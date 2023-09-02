@@ -55,7 +55,7 @@ const Create = () => {
 
     try {
       setIsPending(true)
-      await projectFirestore.collection("medications").addc(doc)
+      await projectFirestore.collection("medications").add(doc)
       history.push("/")
     } catch(err) {
         setIsPending(false)

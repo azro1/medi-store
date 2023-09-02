@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import useFetch from '../../hooks/useFetch';
 import { useTheme } from '../../hooks/useTheme';
+import { projectFirestore } from '../../firebase/config';
 
 // styles
 import './Edit.css'
@@ -29,10 +29,28 @@ const Edit = () => {
     const { id } = useParams()
     const history = useHistory()
 
-    const { data, isPending, error } = useFetch(`http://localhost:3000/medications/${id}`)
-    const { updateData, data: medications, isPending: loading, error: failure } = useFetch(`http://localhost:3000/medications/${id}`, "PUT")
     const { mode } = useTheme()
-  
+
+    // created state for data
+    const [data, setData] = useState(null)
+    const [isPending, setIsPending] = useState(false)
+    const [error, setError] = useState(false)
+    
+    // we use useEffect to first fetch document from firestore using the id that we get from useParams and pass the id as a dependency so that if we fetch a different document it re-runs the template to update the value - then we update the data state with the document that we get back
+    useEffect(() => {
+      setIsPending(true)
+      projectFirestore.collection("medications").doc(id).get().then((doc) => {
+        if (doc.exists) {
+           setData(doc.data())
+           setIsPending(false)
+        } else {
+          setError("Sorry! That medication doesn't exist...")
+        }
+      })
+    }, [id])
+
+
+    // we still check for data and populate the form fields with data that comes back from firestore using useEffect
     useEffect(() => {
       if (data) {
         setName(data.name);
@@ -56,43 +74,37 @@ const Edit = () => {
     }, [data]);
 
     // form submit function
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault()
-      updateData({
-        name,
-        dosage,
-        dosageForm,
-        frequency,
-        adminRoute,
-        startDate,
-        endDate,
-        doctorName,
-        doctorEmail,
-        pharmacyName,
-        pharmacyEmail,
-        contains,
-        instructions,
-        storage,
-        sideEffects,
-        warning
-      })
-      setName('')
-      setDosage('')
-      setDosageForm('')
-      setFrequency('')
-      setAdminRoute('')
-      setStartDate('')
-      setEndDate('')
-      setDoctorName('')
-      setDoctorEmail('')
-      setPharmacyName('')
-      setPharmacyEmail('')
-      setNewIngredient('')
-      setInstructions('')
-      setStorage('')
-      setSideEffects('')
-      setWarning('')
-    };
+
+      // inside handleSubit is where we update the document by using the collection method on the projectFirestore object again passing in the collection name and using the doc method on it passing in the id of the document we want to update. To update the document we use a method called update passing in an object with any properties that we want to update as key / value pairs (you must specify key / value pairs like this or it will throw errors)
+
+      // again we use a try catch block and await the completetion before redirecting the user
+      try {
+        await projectFirestore.collection("medications").doc(id).update({
+          name : name,
+          dosage : dosage,
+          dosageForm: dosageForm,
+          frequency: frequency,
+          adminRoute: adminRoute,
+          startDate: startDate,
+          endDate: endDate,
+          doctorName: doctorName,
+          doctorEmail: doctorEmail,
+          pharmacyName: pharmacyName,
+          pharmacyEmail: pharmacyEmail,
+          contains: contains,
+          instructions: instructions,
+          storage: storage,
+          sideEffects: sideEffects,
+          warning: warning
+        })
+        history.push("/")
+      } catch (error) {
+          setError("we can't update your medication right now...")
+      }
+
+    }
 
     // add ingredients function
     const handleAdd = (e) => {
@@ -119,19 +131,11 @@ const Edit = () => {
       }))
     }
 
-    useEffect(() => {
-        if (medications) {
-          history.push('/')
-        }
-    }, [medications, history])
-
     return (
       <form className={`edit-form ${mode}`} onSubmit={handleSubmit}>
         <h1 className={`page-title ${mode}`}>Edit Medication</h1>
         {error && <p className={`error ${mode}`}>{error}</p>}
         {isPending && <p className={`loading ${mode}`}>please wait...</p>}
-        {failure && <p className={`error ${mode}`}>{failure}</p>}
-        {loading && <p className={`loading ${mode}`}>please wait...</p>}
         <div className='form-control'>
           <label>
             <span>Name:</span>
