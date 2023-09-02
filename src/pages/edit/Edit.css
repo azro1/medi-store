@@ -40,9 +40,9 @@
     margin-left: 0.625rem;
     position: relative;
     top: -0.45rem;
-    width: 30%;
+    width: 40%;
     cursor: pointer;
-    padding: 0.825rem;
+    padding: 0.925rem;
     background: #FF0000;
     color: #fff;
     font-weight: 900;
@@ -62,8 +62,8 @@
 }
 
 .edit-form .add-btn {
-    width: 30%;
-    padding: 0.825rem;
+    width: 40%;
+    padding: 0.925rem;
     background: #000;
     color: #fff;
     font-weight: 900;

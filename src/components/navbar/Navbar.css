@@ -58,15 +58,15 @@
     }
 
     .navbar .search-add a {
-        width: fit-content;
+        width: 14rem;
         margin-top: 0.8rem;
+        text-align: center;
     }
 }
 
 @media only screen and (max-width: 712px)  {
     .navbar nav {
         flex-direction: column;
-        /* align-items: flex-start; */
     }
 
     .navbar a.storename {
