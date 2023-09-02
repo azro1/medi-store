@@ -1,8 +1,10 @@
 // styles
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
-import useFetch from '../../hooks/useFetch'
 import { useTheme } from '../../hooks/useTheme';
+
+// import projectFirestore object from firebase config file
+import { projectFirestore } from '../../firebase/config';
 
 import './Create.css';
 
@@ -27,13 +29,18 @@ const Create = () => {
   const [contains, setContains] = useState([]);
   const ingredientInput = useRef(null);
   const history = useHistory()
-
-  const { postData, data, isPending, error} = useFetch('http://localhost:3000/medications', "POST") 
   const { mode } = useTheme()
 
-  const handleSubmit = (e) => {
+  // add error & isPending state instead of pulling from hook
+  const [isPending, setIsPending] = useState(false)
+  const [error, setError] = useState(false)
+
+  // we have to make this an async function because we are using try catch & await
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    postData({      
+
+    // swap the postData function call to just an object stored in a const called doc and we want to save this object as a document to the firestore medications collection
+    const doc = {      
       name,
       dosage,
       dosageForm,
@@ -50,23 +57,22 @@ const Create = () => {
       storage,
       sideEffects,
       warning
-    })
+    }
 
-    setName('')
-    setDosage('')
-    setDosageForm('')
-    setFrequency('')
-    setAdminRoute('')
-    setStartDate('')
-    setEndDate('')
-    setDoctorName('')
-    setDoctorEmail('')
-    setPharmacyName('')
-    setPharmacyEmail('')
-    setInstructions('')
-    setStorage('')
-    setSideEffects('')
-    setWarning('')
+    // and it's dead simple to do that - all we need to do is use the projectFirestore object and we go into the medications collection and we want to add a document by using the add method pasing in the doc object and what this does is it generates a new object inside of the medications collection and it automatically adds a unique id for the document and that's pretty much all we need to do
+
+    // but i'm going to wrap this in a try catch block just to catch any errors if there are any because we don't add on the .then method onto the end of this
+
+    try {
+      setIsPending(true)
+      await projectFirestore.collection("medications").add(doc) // because we're using await it means that this will finish before it goes onto the next line because after it's added the object to the database we want to redirect the user back to the Home page component
+      history.push("/")
+    } catch(err) {
+        setIsPending(false)
+        setError("Sorry 😞 We can't add your medication right now...")
+    }
+
+     // we remove the state functions that reset state after foem is submitted inside of handleSubmit
   };
 
   const handleAdd = (e) => {
@@ -80,17 +86,14 @@ const Create = () => {
     ingredientInput.current.focus();
   };
 
-  useEffect(() => {
-    if (data) {
-      history.push("/")
-    }
-  }, [data, history])
+
+// removed useEffect which previously used data property that was returned after request was complete to rederected user
 
   return (
     <form className={`medication-form ${mode}`} onSubmit={handleSubmit}>
       <h1 className={`page-title ${mode}`}>Add a new Medication</h1>
-      {error && <p className={`error ${mode}`}>{error}</p>}
       {isPending && <p className={`loading ${mode}`}>please wait...</p>}
+      {error && <p className={`error ${mode}`}>{error}</p>}
       <div className='form-control'>
         <label>
           <span>Name:</span>

@@ -2,8 +2,6 @@ import { useParams, useHistory, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 // import useFetch from '../../hooks/useFetch'
 import { useTheme } from '../../hooks/useTheme'
-
-// import projectFirestore object from firebase config file
 import { projectFirestore } from '../../firebase/config'
 
 // styles
@@ -23,19 +21,16 @@ const handleDelete = async () => {
   // deleteData()
 }
 
-// we use useEffect to connect to firestore
 useEffect(() => {
-setIsPending(true)
-// when we want a single document from the collection we need to get a reference to that single document and to do that we use the doc method which accepts an argument whcih is the id of the document that we want - once we have that reference we can then use the get method to fetch that document
-projectFirestore.collection("medications").doc(id).get().then((doc) => {
-  // the document that is return has an exists property which is a boolean and we need to check if the document exists so that if a user tries to access a document that doesn't exist we can display an error letting them know that
-  if (doc.exists) {
-    setIsPending(false)
-    setMedication(doc.data())
-  } else {
-    setIsPending(false)
-    setError("Sorry! That medication doesn't exist...")
-  }
+  setIsPending(true)
+  projectFirestore.collection("medications").doc(id).get().then((doc) => {
+    if (doc.exists) {
+      setIsPending(false)
+      setMedication(doc.data())
+    } else {
+      setIsPending(false)
+      setError("Sorry! That medication doesn't exist...")
+    }
 })
 }, [id])
 

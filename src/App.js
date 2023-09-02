@@ -43,7 +43,6 @@ function App() {
             <Redirect to="/" />
           </Route>
         </Switch>
-        {/* found bug which was overlooked - the "catch all" Route above for any path that router doesn't match should have been placed inside of the Switch compoenent - had it here outside of it which was causing problem */}
       </BrowserRouter>
     </div>
   );
