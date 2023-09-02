@@ -93,17 +93,25 @@
 }
 
 
+@media only screen and (max-width: 960px)  {
+    .medication {
+        max-width: 85vw;
+    }
+}
+
 /* media queries */
 @media only screen and (max-width: 712px)  {
     .medication .info .dates {
-        align-self: flex-start;
+        align-self: flex-end;
     }
+    .medication .buttons {
+        justify-content: center;
+     }
 }
 
 @media only screen and (max-width: 425px)  {
     .medication .buttons {
        text-align: center;
-       flex-direction: column-reverse;
-       /* align-items: flex-start; */
+       flex-direction: column;
     }
 }

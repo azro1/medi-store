@@ -89,8 +89,8 @@ useEffect(() => {
             </section>
           </div>
           <div className="buttons">
-              <button className="delete" onClick={() => handleDelete(id)} >Delete</button> 
               <Link className="editBtn" to={`/edit/${id}`} >Edit</Link>
+              <button className="delete" onClick={() => handleDelete(id)} >Delete</button> 
           </div>
         </>
        )}
