@@ -37,7 +37,7 @@
 .navbar .search-add a {
     font-family: 'Work Sans', sans-serif;
     border: 0.125rem solid #fff;
-    padding: 0.8rem 0.9rem;
+    padding: 0.9rem 0.9rem;
     text-decoration: none;
     border-radius: 0.5rem;
     color: #fff;
@@ -58,7 +58,6 @@
     }
 
     .navbar .search-add a {
-        width: 14rem;
         margin-top: 0.8rem;
         text-align: center;
     }
@@ -74,6 +73,6 @@
     }
 
     .navbar .search-add a {
-        align-self: center;
+        width: 100%;
     }
 }
