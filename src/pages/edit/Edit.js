@@ -35,8 +35,7 @@ const Edit = () => {
     const [data, setData] = useState(null)
     const [isPending, setIsPending] = useState(false)
     const [error, setError] = useState(false)
-    
-    // we use useEffect to first fetch document from firestore using the id that we get from useParams and pass the id as a dependency so that if we fetch a different document it re-runs the template to update the value - then we update the data state with the document that we get back
+
     useEffect(() => {
       setIsPending(true)
       projectFirestore.collection("medications").doc(id).get().then((doc) => {
@@ -49,8 +48,6 @@ const Edit = () => {
       })
     }, [id])
 
-
-    // we still check for data and populate the form fields with data that comes back from firestore using useEffect
     useEffect(() => {
       if (data) {
         setName(data.name);
@@ -77,9 +74,6 @@ const Edit = () => {
     const handleSubmit = async (e) => {
       e.preventDefault()
 
-      // inside handleSubit is where we update the document by using the collection method on the projectFirestore object again passing in the collection name and using the doc method on it passing in the id of the document we want to update. To update the document we use a method called update passing in an object with any properties that we want to update as key / value pairs (you must specify key / value pairs like this or it will throw errors)
-
-      // again we use a try catch block and await the completetion before redirecting the user
       try {
         await projectFirestore.collection("medications").doc(id).update({
           name : name,
