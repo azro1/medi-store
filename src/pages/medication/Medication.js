@@ -1,6 +1,5 @@
 import { useParams, useHistory, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-// import useFetch from '../../hooks/useFetch'
 import { useTheme } from '../../hooks/useTheme'
 import { projectFirestore } from '../../firebase/config'
 
@@ -8,17 +7,24 @@ import { projectFirestore } from '../../firebase/config'
 import './Medication.css'
 
 const Medication = () => {
-const { id } = useParams()
 const [medication, setMedication] = useState(null)
 const [isPending, setIsPending] = useState(false)
 const [error, setError] = useState(false)
-// const { deleteData, data } = useFetch(`http://localhost:3000/medications/${id}`, "DELETE")
+const { id } = useParams()
 const history = useHistory()
 const { mode } = useTheme()
 
 // delete medication
-const handleDelete = async () => {
-  // deleteData()
+const handleDelete = async (id) => {
+  // we take in the id as a parameter and inside of this function we need to communicate with the firestore so we again use the collection method on the projectFirestore object because we stil want to go into a collection and then we use the doc method again just like we used below to fetch a single medication and we pass in the id of the document we want and all we need to do is use the delete method on it
+
+  // we use try catch block like we did in Create to just to catch any errors if there are any and we're using await inside of an async function to wait after it's deleted the object from the database then we redirect the user back to the Home page component
+  try {
+    await projectFirestore.collection("medications").dodc(id).delete()
+    history.push('/')
+  } catch (err) {
+      console.log(err.message)
+  }
 }
 
 useEffect(() => {
@@ -35,9 +41,6 @@ useEffect(() => {
 }, [id])
 
 useEffect(() => {
-  // if (data) {
-  //    history.push("/")
-  // }
   if (error) {
     setTimeout(() => {
       history.push('/')
@@ -89,7 +92,8 @@ useEffect(() => {
             </section>
           </div>
           <div className="buttons">
-              <button className="delete" onClick={handleDelete} >Delete</button> 
+               {/* we need to wrap handleDelete in an annoymous function because we pass in the id of the medication that we get from the useParams hook as an argument */}
+              <button className="delete" onClick={() => handleDelete(id)} >Delete</button> 
               <Link className="editBtn" to={`/edit/${id}`} >Edit</Link>
           </div>
         </>
