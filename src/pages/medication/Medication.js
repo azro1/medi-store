@@ -1,33 +1,54 @@
 import { useParams, useHistory, Link } from 'react-router-dom'
-import { useEffect } from 'react'
-import useFetch from '../../hooks/useFetch'
+import { useEffect, useState } from 'react'
+// import useFetch from '../../hooks/useFetch'
 import { useTheme } from '../../hooks/useTheme'
+
+// import projectFirestore object from firebase config file
+import { projectFirestore } from '../../firebase/config'
 
 // styles
 import './Medication.css'
 
 const Medication = () => {
 const { id } = useParams()
-const { data: medication, isPending, error } = useFetch(`http://localhost:3000/medications/${id}`)
-const { deleteData, data } = useFetch(`http://localhost:3000/medications/${id}`, "DELETE")
+const [medication, setMedication] = useState(null)
+const [isPending, setIsPending] = useState(false)
+const [error, setError] = useState(false)
+// const { deleteData, data } = useFetch(`http://localhost:3000/medications/${id}`, "DELETE")
 const history = useHistory()
 const { mode } = useTheme()
 
 // delete medication
 const handleDelete = async () => {
-  deleteData()
+  // deleteData()
 }
 
+// we use useEffect to connect to firestore
 useEffect(() => {
-  if (data) {
-     history.push("/")
+setIsPending(true)
+// when we want a single document from the collection we need to get a reference to that single document and to do that we use the doc method which accepts an argument whcih is the id of the document that we want - once we have that reference we can then use the get method to fetch that document
+projectFirestore.collection("medications").doc(id).get().then((doc) => {
+  // the document that is return has an exists property which is a boolean and we need to check if the document exists so that if a user tries to access a document that doesn't exist we can display an error letting them know that
+  if (doc.exists) {
+    setIsPending(false)
+    setMedication(doc.data())
+  } else {
+    setIsPending(false)
+    setError("Sorry! That medication doesn't exist...")
   }
+})
+}, [id])
+
+useEffect(() => {
+  // if (data) {
+  //    history.push("/")
+  // }
   if (error) {
     setTimeout(() => {
       history.push('/')
     }, 2000)
-  }  
-}, [data, error, history])
+  }
+}, [error, history])
 
   return (
     <div className={`medication ${mode}`}>
