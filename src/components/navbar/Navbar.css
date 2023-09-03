@@ -20,7 +20,7 @@
 
 .navbar a.storename h1 {
     font-weight: 800;
-    font-size: 2.3rem;
+    font-size: 2.8rem;
     display: inline-block;
     font-family: 'Changa', sans-serif;
 }
@@ -32,6 +32,7 @@
 
 .navbar nav .search-add {
     display: flex;
+    align-items: center;
 }
 
 .navbar .search-add a {
@@ -47,7 +48,7 @@
 }
 
 .navbar .search-add a:hover {
-    background: #4169E1;
+    background: #FF0000;
 }
 
 /* media queries */
