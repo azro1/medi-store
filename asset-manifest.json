@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/medi-store/static/css/main.4c3bc988.chunk.css",
+    "main.js": "/medi-store/static/js/main.8e525b7f.chunk.js",
+    "main.js.map": "/medi-store/static/js/main.8e525b7f.chunk.js.map",
+    "runtime-main.js": "/medi-store/static/js/runtime-main.258c27c5.js",
+    "runtime-main.js.map": "/medi-store/static/js/runtime-main.258c27c5.js.map",
+    "static/js/2.a9823891.chunk.js": "/medi-store/static/js/2.a9823891.chunk.js",
+    "static/js/2.a9823891.chunk.js.map": "/medi-store/static/js/2.a9823891.chunk.js.map",
+    "index.html": "/medi-store/index.html",
+    "static/css/main.4c3bc988.chunk.css.map": "/medi-store/static/css/main.4c3bc988.chunk.css.map",
+    "static/js/2.a9823891.chunk.js.LICENSE.txt": "/medi-store/static/js/2.a9823891.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/medi-store/static/media/WorkSans-Regular.9c3cbf48.woff",
+    "static/media/logo.5bc32b6b.svg": "/medi-store/static/media/logo.5bc32b6b.svg",
+    "static/media/switch.9bbcff9c.svg": "/medi-store/static/media/switch.9bbcff9c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.258c27c5.js",
+    "static/js/2.a9823891.chunk.js",
+    "static/css/main.4c3bc988.chunk.css",
+    "static/js/main.8e525b7f.chunk.js"
+  ]
+}
