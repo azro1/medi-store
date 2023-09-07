@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/medi-store/static/css/main.0a82c421.chunk.css",
-    "main.js": "/medi-store/static/js/main.e7560814.chunk.js",
-    "main.js.map": "/medi-store/static/js/main.e7560814.chunk.js.map",
+    "main.css": "/medi-store/static/css/main.a1c9332a.chunk.css",
+    "main.js": "/medi-store/static/js/main.14caaccd.chunk.js",
+    "main.js.map": "/medi-store/static/js/main.14caaccd.chunk.js.map",
     "runtime-main.js": "/medi-store/static/js/runtime-main.258c27c5.js",
     "runtime-main.js.map": "/medi-store/static/js/runtime-main.258c27c5.js.map",
     "static/js/2.e0f72c34.chunk.js": "/medi-store/static/js/2.e0f72c34.chunk.js",
     "static/js/2.e0f72c34.chunk.js.map": "/medi-store/static/js/2.e0f72c34.chunk.js.map",
     "index.html": "/medi-store/index.html",
-    "static/css/main.0a82c421.chunk.css.map": "/medi-store/static/css/main.0a82c421.chunk.css.map",
+    "static/css/main.a1c9332a.chunk.css.map": "/medi-store/static/css/main.a1c9332a.chunk.css.map",
     "static/js/2.e0f72c34.chunk.js.LICENSE.txt": "/medi-store/static/js/2.e0f72c34.chunk.js.LICENSE.txt",
     "static/media/index.css": "/medi-store/static/media/WorkSans-Regular.9c3cbf48.woff",
     "static/media/logo.5bc32b6b.svg": "/medi-store/static/media/logo.5bc32b6b.svg",
@@ -17,7 +17,7 @@
   "entrypoints": [
     "static/js/runtime-main.258c27c5.js",
     "static/js/2.e0f72c34.chunk.js",
-    "static/css/main.0a82c421.chunk.css",
-    "static/js/main.e7560814.chunk.js"
+    "static/css/main.a1c9332a.chunk.css",
+    "static/js/main.14caaccd.chunk.js"
   ]
 }
