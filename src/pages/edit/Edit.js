@@ -39,12 +39,11 @@ const Edit = () => {
     useEffect(() => {
       setIsPending(true)
       projectFirestore.collection("medications").doc(id).get().then((doc) => {
-        if (doc.exists) {
-           setData(doc.data())
-           setIsPending(false)
-        } else {
-          setError("Sorry! That medication doesn't exist...")
-        }
+        setData(doc.data())
+        setIsPending(false)
+      }).catch((err) => {
+        setError("Sorry 😞 we can't get that medication right now...")
+        setIsPending(false)
       })
     }, [id])
 
@@ -95,7 +94,7 @@ const Edit = () => {
         })
         history.push("/")
       } catch (error) {
-          setError("we can't update your medication right now...")
+          setError("Sorry 😞 we can't update your medication right now...")
       }
 
     }

@@ -20,6 +20,9 @@
 .medication .info .dates {
     align-self: flex-end;
     margin-top: 1.25rem;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
 }
 
 .medication .info p {

@@ -18,7 +18,7 @@ const Home = () => {
     setIsPending(true)
     projectFirestore.collection("medications").get().then((snapshot) => {
       if (snapshot.empty) {
-        setError("No medications to load...")
+        setError('Click "Add Medication" to start adding your medications')
         setIsPending(false)
       } else {
         let results = []
@@ -29,7 +29,7 @@ const Home = () => {
         setIsPending(false)
       }
     }).catch((err) => {
-         setError(err.message)
+         setError("Oh no 😞 so sorry! Please try again later... ")
          setIsPending(false)
     })
   }, [])

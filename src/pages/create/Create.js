@@ -59,7 +59,7 @@ const Create = () => {
       history.push("/")
     } catch(err) {
         setIsPending(false)
-        setError("Sorry 😞 We can't add your medication right now...")
+        setError("Sorry 😞 we can't add your medication right now...")
     }
   };
 

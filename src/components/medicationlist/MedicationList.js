@@ -7,10 +7,6 @@ import './MedicationList.css'
 const MedicationList = ({ medications }) => {
   const { mode } = useTheme()
 
-  if (medications.length === 0) {
-    return <p className={`error ${mode}`}>Click "Add Medication" to start adding your medications</p>
-  }
-
   return (
     <div className="medication-list">
        {medications.map((medication) => (
