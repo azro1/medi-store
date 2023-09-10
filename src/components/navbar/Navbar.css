@@ -76,4 +76,8 @@
     .navbar .search-add a {
         width: 100%;
     }
+
+    .navbar .search-add a:hover {
+        background: none;
+    }
 }
