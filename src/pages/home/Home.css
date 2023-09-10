@@ -2,3 +2,10 @@
     max-width: 85vw;
     margin: 0 auto;
 }
+
+/* media queries */
+@media only screen and (max-width: 630px)  {
+    .error {
+        line-height: 1.3;
+    }
+}
