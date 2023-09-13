@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-bottom: 2.8rem;
 }
 
 .medication-list .card {
