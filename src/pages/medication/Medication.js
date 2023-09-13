@@ -85,6 +85,7 @@ useEffect(() => {
                 ))}
                 </p> 
               <p>Side Effects: <span>{medication.sideEffects}</span></p>
+              <p>Storage: <span>{medication.storage}</span></p>
               <p>Advice: <span>{medication.warning}</span></p>
             </section>
           </div>
