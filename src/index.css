@@ -88,7 +88,6 @@ html, body, #root {
   font-size: 2rem;
 }
 
-
 /* dark mode */
 .page-title.dark {
   color: #e4e4e4;
@@ -97,6 +96,13 @@ html, body, #root {
 .loading.dark, 
 .error.dark {
   color: #e4e4e4;
+}
+
+input.btn {
+  font-size: 1rem;
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 0.8rem;
+  cursor: pointer;
 }
 
 /* media queries */

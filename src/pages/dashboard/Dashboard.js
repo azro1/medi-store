@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react'
 import { projectFirestore } from '../../firebase/config'
 
 // styles
-import './Home.css'
+import './Dashboard.css'
 
 // components
 import MedicationList from '../../components/medicationlist/MedicationList'
 
-const Home = () => {
+const Dashboard = () => {
   const { mode } = useTheme()
   const [data, setData] = useState(null)
   const [isPending, setIsPending] = useState(false)
@@ -35,7 +35,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="home">
+    <div className="dashboard">
        <h1 className={`page-title ${mode}`}>Your Medications</h1>
        {error && <p className={`error ${mode}`}>{error}</p>}
        {isPending && <p className={`loading ${mode}`}>please wait...</p>}
@@ -44,4 +44,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Dashboard

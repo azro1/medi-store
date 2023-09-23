@@ -6,7 +6,9 @@ import Navbar from './components/navbar/Navbar'
 import ThemeSelector from './components/themeselector/ThemeSelector'
 
 // pages
-import Home from './pages/home/Home'
+import Login from './pages/login/Login'
+import Signup from './pages/signup/Signup'
+import Dashboard from './pages/dashboard/Dashboard'
 import Search from './pages/search/Search'
 import Create from './pages/create/Create'
 import Medication from './pages/medication/Medication'
@@ -24,8 +26,14 @@ function App() {
         <Navbar />
         <ThemeSelector />
         <Switch>
-          <Route exact path="/">
-            <Home />
+          <Route path="/login" >
+            <Login />
+          </Route>
+          <Route path="/signup" >
+            <Signup />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
           <Route path="/search">
             <Search />
