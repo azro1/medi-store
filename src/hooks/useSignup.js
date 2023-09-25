@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { projectAuth } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 
 const useSignup = () => {
+  const [isCancelled, setIsCancelled] = useState(false)
   const [error, setError] = useState(null)
   const [isPending, setIsPending] = useState(false)
   const { dispatch } = useAuthContext()
@@ -25,16 +26,27 @@ const useSignup = () => {
 
         // dispatch login action
         dispatch({ type: 'LOGIN', payload: response.user })
+        
+        // update state
+        if (!isCancelled) {
+          setError(null)
+          setIsPending(false)
+        }
 
-        setError(null)
-        setIsPending(false)
 
     } catch (err) {
-        setError(err.message)
-        setIsPending(false)
-        console.log(err.message)
+        if (!isCancelled) {
+          setError(err.message)
+          setIsPending(false)
+          console.log(err.message)
+        }
     }
   }
+
+  useEffect(() => {
+    // if the component that uses this hook unmouts this cleanup function fires 
+    return () => setIsCancelled(true)
+  }, [])
 
   return { error, isPending, signup }
 }
