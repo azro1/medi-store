@@ -1,34 +1,39 @@
-.login {
+.login-form {
     max-width: 85vw;
     margin: 0 auto;
     padding-bottom: 2.8rem;
   }
   
-  .login .form-control {
+  .login-form .form-control {
       max-width: 23.5rem;
-      align-items: start;
       display: flex;
+      align-items: flex-start;
       flex-direction: column;
       justify-content: center;
       margin: 0 auto;
   }
   
-  .login .form-control label {
+  .login-form .form-control label {
       display: block;
       padding-bottom: 0.938rem;
       width: 100%;
   }
   
-  .login .form-control span {
+  .login-form .form-control span {
       display: block;
       font-size: 1.1rem;
   }
   
-  .login .form-control input {
+  .login-form .form-control input {
       display: block;
       padding: 0.825rem;
       width: 100%;
       font-family: 'Work Sans', sans-serif;
       font-size: 1rem;
       outline: none;
+  }
+
+  /* dark mode */
+  .login-form.dark .form-control label span {
+      color: #e4e4e4;
   }
