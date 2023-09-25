@@ -51,6 +51,32 @@
     background: #FF0000;
 }
 
+.navbar .signup {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0 1rem;
+
+}
+
+.navbar .signup a {
+    font-size: 1.1rem;
+    /* font-family: 'Work Sans', sans-serif; */
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.navbar button {
+    padding: 0.9rem;
+    font-family: 'Work Sans', sans-serif;
+    border: 0.125rem solid #fff;
+    border-radius: 0.5rem;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+}
+
 /* media queries */
 @media only screen and (max-width: 960px)  {
     .navbar nav .search-add {
