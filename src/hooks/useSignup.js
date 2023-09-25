@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { projectAuth } from "../firebase/config";
+import { useAuthContext } from "./useAuthContext";
 
 const useSignup = () => {
   const [error, setError] = useState(null)
   const [isPending, setIsPending] = useState(false)
+  const { dispatch } = useAuthContext()
   
   const signup = async (email, password, displayName) => {
     setError(null)
@@ -12,7 +14,7 @@ const useSignup = () => {
     // sign user up
     try {
         const response = await projectAuth.createUserWithEmailAndPassword(email, password)
-        console.log(response.user)
+        // console.log(response.user)
 
         // if can't connect to network
         if (!response) {
@@ -20,6 +22,10 @@ const useSignup = () => {
         }
         // add displayName to user
         await response.user.updateProfile({ displayName })
+
+        // dispatch login action
+        dispatch({ type: 'LOGIN', payload: response.user })
+
         setError(null)
         setIsPending(false)
 
