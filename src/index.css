@@ -88,6 +88,18 @@ html, body, #root {
   font-size: 2rem;
 }
 
+/* login & signup buttons */
+.btn {
+  font-size: 1rem;
+  padding: 0.825rem 1rem;
+  font-family: 'Work Sans', sans-serif;
+  background-color: #141414;
+  margin-top: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+}
+
 /* dark mode */
 .page-title.dark {
   color: #e4e4e4;
@@ -96,13 +108,6 @@ html, body, #root {
 .loading.dark, 
 .error.dark {
   color: #e4e4e4;
-}
-
-input.btn {
-  font-size: 1rem;
-  font-family: 'Work Sans', sans-serif;
-  margin-top: 0.8rem;
-  cursor: pointer;
 }
 
 /* media queries */
