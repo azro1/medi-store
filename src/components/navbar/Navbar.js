@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import storeLogo from '../../assets/logo.svg'
-import Searchbar from '../searchbar/Searchbar'
 import { useTheme } from '../../hooks/useTheme'
 import { useLogout } from '../../hooks/useLogout'
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 // styles
 import './Navbar.css'
@@ -10,6 +10,7 @@ import './Navbar.css'
 const Navbar = () => {
 const { color } = useTheme()
 const { logout } = useLogout()
+const { user } = useAuthContext()
 
   return (
     <div className="navbar" style={{ background: color }} >
@@ -20,17 +21,25 @@ const { logout } = useLogout()
             <img src={storeLogo} alt="medication" />
             </Link>
 
-            <div className="search-add">
-              <Searchbar />
-              <Link to="/create">Add Medication</Link>
-            </div>
-            
-            <div className="signup">
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
-            </div>
+            {user && (
+              <div className="logout">
+                <p>hi, {user.displayName}</p>
+                <button onClick={() =>logout()}>Logout</button>
+              </div>
+            )}
 
-            <button onClick={() =>logout()}>Logout</button>
+           {user && (
+             <div className="search-add">
+               <Link to="/create">Add Medication</Link>
+             </div>
+           )}
+            
+           {!user && (
+             <div className="signup">
+               <Link to="/login">Login</Link>
+               <Link to="/signup">Signup</Link>       
+             </div>
+           )}
 
         </nav>
     </div>

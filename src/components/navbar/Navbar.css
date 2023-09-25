@@ -38,13 +38,13 @@
 .navbar .search-add a {
     font-family: 'Work Sans', sans-serif;
     border: 0.125rem solid #fff;
-    padding: 0.9rem;
+    padding: 0.825rem;
     text-decoration: none;
     border-radius: 0.5rem;
     color: #fff;
     font-size: 1rem;
     font-weight: 700;
-    transition: 0.1s;
+    transition: 0.3s;
 }
 
 .navbar .search-add a:hover {
@@ -53,21 +53,31 @@
 
 .navbar .signup {
     display: flex;
-    gap: 0.5rem;
-    margin: 0 1rem;
-
 }
 
 .navbar .signup a {
     font-size: 1.1rem;
-    /* font-family: 'Work Sans', sans-serif; */
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 1rem;
     text-decoration: none;
     color: #fff;
 }
 
+.navbar .logout {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+}
 
-.navbar button {
-    padding: 0.9rem;
+.navbar .logout p {
+    color: #fff;
+    width: 100%;
+    margin: 0 1rem;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.navbar .logout button {
+    padding: 0.825rem;
     font-family: 'Work Sans', sans-serif;
     border: 0.125rem solid #fff;
     border-radius: 0.5rem;
@@ -75,6 +85,11 @@
     font-size: 1rem;
     font-weight: bold;
     color: #fff;
+    transition: 0.3s;
+}
+
+.navbar .logout button:hover {
+    background: #FF0000;
 }
 
 /* media queries */

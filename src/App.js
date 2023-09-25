@@ -3,6 +3,7 @@ import { useTheme } from './hooks/useTheme';
 
 //components
 import Navbar from './components/navbar/Navbar'
+import Searchbar from './components/searchbar/Searchbar';
 import ThemeSelector from './components/themeselector/ThemeSelector'
 
 // pages
@@ -25,6 +26,8 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <ThemeSelector />
+        <Searchbar />
+
         <Switch>
           <Route path="/login" >
             <Login />

@@ -91,10 +91,11 @@ html, body, #root {
 /* login & signup buttons */
 .btn {
   font-size: 1rem;
-  padding: 0.825rem 1rem;
+  padding: 0.825rem;
   font-family: 'Work Sans', sans-serif;
   background-color: #141414;
-  margin-top: 0.8rem;
+  border-radius: 0.5rem;
+  margin-top: 0.7rem;
   font-weight: 700;
   cursor: pointer;
   color: #fff;
