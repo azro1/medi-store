@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTheme } from '../../hooks/useTheme'
+import { useSignup } from '../../hooks/useSignup'
 
 // styles
 import './Signup.css'
@@ -9,15 +10,17 @@ const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { mode } = useTheme()
+  const { signup, error, isPending } = useSignup()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(email, password, displayName)
+    signup(email, password, displayName)
   }
 
   return (
     <form className={`signup-form ${mode}`} onSubmit={handleSubmit} >
       <h2 className={`page-title ${mode}`}>Sign Up</h2>
+      {error && <p className={`error ${mode}`}>{error}</p>}
       <div className="form-control">
         <label>
             <span>Username:</span>
@@ -31,7 +34,9 @@ const Signup = () => {
             <span>Password:</span>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
-        <button className="btn">sign up</button>
+        {!isPending && <button className="btn">sign up</button>}
+        {isPending && <button className="btn" disabled>please wait...</button>}
+        
       </div>
     </form>
   )
