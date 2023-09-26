@@ -1,44 +1,50 @@
-import { useState, useEffect } from "react";
-import { projectAuth } from "../firebase/config";
-import { useAuthContext } from "./useAuthContext";
+import { useState, useEffect } from "react"
+import { projectAuth } from "../firebase/config"
+import { useAuthContext } from "./useAuthContext"
 
 const useLogin = () => {
   const [isCancelled, setIsCancelled] = useState(false)
   const [error, setError] = useState(null)
   const [isPending, setIsPending] = useState(false)
   const { dispatch } = useAuthContext()
-
-  const login = async (email, password) => {
+  
+  const login = async(email, password) => {
     setError(null)
     setIsPending(true)
-
+      
     // log user in
     try {
-      const response = await projectAuth.signInWithEmailAndPassword(email, password)
+        const response = await projectAuth.signInWithEmailAndPassword(email, password)
 
-      // dispatch login action
-      dispatch({ type: 'LOGIN', payload: response.user })
+        // dispatch login action
+        dispatch({ type: 'LOGIN', payload: response.user })
 
-      // update state
-      if (!isCancelled) {
-          setError(null)
-          setIsPending(false)
-      }
+        // update state
+        if (!isCancelled) {
+            setIsPending(false)
+            setError(null)
+        }
+
     } catch (err) {
         if (!isCancelled) {
-            setError(err.message)
+            if (err.code === "auth/internal-error") {
+                setError("Invalid Login Credentials.");
+            } else {
+              setError(err.message);
+              console.log(err.message)
+            }
             setIsPending(false)
-            console.log(err.message)
         }
+      }
     }
-  }
-
-  useEffect(() => {
+    
     // if the component that uses this hook unmouts this cleanup function fires 
-    return () => setIsCancelled(true)
-  }, [])
+    useEffect(() => {
+        return () => setIsCancelled(true)
+    }, [])
 
-  return { error, isPending, login }
+    return { error, isPending, login }
+
 }
 
 export { useLogin }

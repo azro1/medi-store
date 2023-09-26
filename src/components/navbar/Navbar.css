@@ -6,8 +6,8 @@
 .navbar nav {
     display: flex;
     align-items: center;
-    margin: 0 auto;
     max-width: 85vw;
+    margin: 0 auto;
 }
 
 .navbar a.storename {
@@ -30,50 +30,16 @@
     margin-left: 0.5rem;
 }
 
-.navbar nav .search-add {
-    display: flex;
-    align-items: center;
-}
-
-.navbar .search-add a {
-    font-family: 'Work Sans', sans-serif;
-    border: 0.125rem solid #fff;
-    padding: 0.825rem;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 700;
-    transition: 0.3s;
-}
-
-.navbar .search-add a:hover {
-    background: #FF0000;
-}
-
-.navbar .signup {
-    display: flex;
-}
-
-.navbar .signup a {
-    font-size: 1.1rem;
-    font-family: 'Work Sans', sans-serif;
-    padding-left: 1rem;
-    text-decoration: none;
-    color: #fff;
-}
-
 .navbar .logout {
     display: flex;
     align-items: center;
-    margin: 0 1rem;
 }
 
 .navbar .logout p {
     color: #fff;
-    width: 100%;
-    margin: 0 1rem;
     font-family: 'Work Sans', sans-serif;
+    font-size: 1.1rem;
+    margin-right: 0.8rem;
 }
 
 .navbar .logout button {
@@ -82,43 +48,85 @@
     border: 0.125rem solid #fff;
     border-radius: 0.5rem;
     background: transparent;
+    cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
     color: #fff;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
+    margin-right: 0.8rem;
 }
 
 .navbar .logout button:hover {
     background: #FF0000;
 }
 
+.navbar .logout a {
+    font-family: 'Work Sans', sans-serif;
+    border: 0.125rem solid #fff;
+    padding: 0.825rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: 0.3s ease-in-out;
+    min-width: fit-content;
+}
+
+.navbar .logout a:hover {
+    background: #FF0000;
+}
+
+.navbar .login {
+    display: flex;
+}
+
+.navbar .login a {
+    font-size: 1.1rem;
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 1rem;
+    text-decoration: none;
+    color: #fff;
+}
+
 /* media queries */
-@media only screen and (max-width: 960px)  {
-    .navbar nav .search-add {
+@media only screen and (max-width: 920px)  {
+
+    .navbar nav {
         flex-direction: column;
         align-items: flex-end;
     }
 
-    .navbar .search-add a {
-        margin-top: 0.8rem;
-        text-align: center;
+    .navbar .logout, .login {
+        margin: 2rem 0;
     }
 }
 
-@media only screen and (max-width: 712px)  {
-    .navbar nav {
-        flex-direction: column;
-    }
+
+@media only screen and (max-width: 436px)  {
 
     .navbar a.storename {
-        margin: 0;
-    }
-
-    .navbar .search-add a {
         width: 100%;
+        justify-content: start;
     }
 
-    .navbar .search-add a:hover {
-        background: none;
+    .navbar .logout {
+        flex-wrap: wrap;
+        justify-content: end;
+        row-gap: 1rem;
+    }
+
+    .navbar .logout .displayName {
+        margin-right: auto;
+    }
+
+    .navbar .logout button {
+        margin-right: 0;
+    }
+
+    .navbar .logout a {
+        margin-left: 0.8rem;
     }
 }
+
+

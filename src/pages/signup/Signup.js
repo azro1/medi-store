@@ -24,7 +24,7 @@ const Signup = () => {
       <div className="form-control">
         <label>
             <span>Username:</span>
-            <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
+            <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} maxLength="8" />
         </label>
         <label>
             <span>Email:</span>

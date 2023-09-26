@@ -19,23 +19,20 @@ const { user } = useAuthContext()
           <Link to="/" className="storename">
             <h1>MediStore</h1>
             <img src={storeLogo} alt="medication" />
-            </Link>
+          </Link>
 
             {user && (
               <div className="logout">
-                <p>hi, {user.displayName}</p>
+                <span className="displayName">
+                  <p>hi, {user.displayName}</p>
+                </span>
                 <button onClick={() =>logout()}>Logout</button>
-              </div>
-            )}
-
-           {user && (
-             <div className="search-add">
-               <Link to="/create">Add Medication</Link>
+                <Link to="/create">Add Medication</Link>
              </div>
            )}
             
            {!user && (
-             <div className="signup">
+             <div className="login">
                <Link to="/login">Login</Link>
                <Link to="/signup">Signup</Link>       
              </div>
