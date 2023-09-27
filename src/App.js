@@ -21,7 +21,7 @@ import './App.css';
 
 function App() {
   const { mode } = useTheme()
-  const { authIsReady } = useAuthContext()
+  const { authIsReady, user } = useAuthContext()
 
   return (
     <div className={`App ${mode}`}>
@@ -32,28 +32,36 @@ function App() {
           <Searchbar />
           <Switch>
             <Route path="/login" >
+              {user && <Redirect to="/dashboard" />}
               <Login />
             </Route>
             <Route path="/signup" >
+              {user && <Redirect to="/dashboard" />}
               <Signup />
             </Route>
             <Route path="/dashboard">
+              {!user && <Redirect to="/login" />}
               <Dashboard />
             </Route>
             <Route path="/search">
+              {!user && <Redirect to="/login" />}
               <Search />
             </Route>
             <Route path="/create">
+              {!user && <Redirect to="/login" />}
               <Create />
             </Route>
             <Route path="/medications/:id">
+              {!user && <Redirect to="/login" />}
               <Medication />
             </Route>
             <Route path="/edit/:id">
+              {!user && <Redirect to="/login" />}
               <Edit />
             </Route>
             <Route path="*" >
-              <Redirect to="/" />
+              {user && <Redirect to="/dashboard" />}
+              {!user && <Redirect to="/login" />}
             </Route>
           </Switch>
         </BrowserRouter>

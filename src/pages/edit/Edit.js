@@ -7,6 +7,7 @@ import { projectFirestore } from '../../firebase/config';
 import './Edit.css'
 
 const Edit = () => {
+    const [isCancelled, setIsCancelled] = useState(false)
     const [name, setName] = useState('');
     const [dosage, setDosage] = useState('');
     const [dosageForm, setDosageForm] = useState('');
@@ -39,13 +40,19 @@ const Edit = () => {
     useEffect(() => {
       setIsPending(true)
       projectFirestore.collection("medications").doc(id).get().then((doc) => {
-        setData(doc.data())
-        setIsPending(false)
+        if (!isCancelled) {
+          setData(doc.data())
+          setIsPending(false)
+        }
       }).catch((err) => {
-        setError("Sorry 😞 we can't get that medication right now...")
-        setIsPending(false)
+        if (!isCancelled) {
+          setError("Sorry 😞 we can't get that medication right now...")
+          setIsPending(false)
+        }
       })
-    }, [id])
+      // added cleanup function
+      return () => setIsCancelled(true)
+    }, [id, isCancelled])
 
     useEffect(() => {
       if (data) {
@@ -75,8 +82,8 @@ const Edit = () => {
 
       try {
         await projectFirestore.collection("medications").doc(id).update({
-          name : name,
-          dosage : dosage,
+          name: name,
+          dosage: dosage,
           dosageForm: dosageForm,
           frequency: frequency,
           adminRoute: adminRoute,
@@ -92,7 +99,7 @@ const Edit = () => {
           sideEffects: sideEffects,
           warning: warning
         })
-        history.push("/")
+        history.push("/dashboard")
       } catch (error) {
           setError("Sorry 😞 we can't update your medication right now...")
       }

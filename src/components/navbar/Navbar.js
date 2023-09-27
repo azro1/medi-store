@@ -16,7 +16,7 @@ const { user } = useAuthContext()
     <div className="navbar" style={{ background: color }} >
         <nav>
           
-          <Link to="/" className="storename">
+          <Link to="/dashboard" className="storename">
             <h1>MediStore</h1>
             <img src={storeLogo} alt="medication" />
           </Link>

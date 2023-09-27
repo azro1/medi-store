@@ -14,6 +14,7 @@ const Search = () => {
   const query = queryParams.get('q')  
   const { mode } = useTheme()
 
+  const [isCancelled, setIsCancelled] = useState(false)
   const [data, setData] = useState(null)
   const [isPending, setIsPending] = useState(false)
   const [error, setError] = useState(false)
@@ -22,19 +23,25 @@ const Search = () => {
     setIsPending(true)
     projectFirestore.collection("medications").where('name', '==', query).get().then((snapshot) => {
       if (snapshot.empty) {
-        setError("No medications to load...")
-        setIsPending(false)
+        if (!isCancelled) {
+          setError("No medications to load...")
+          setIsPending(false)
+        }
       } else {
-        let results = []
-        snapshot.docs.forEach((doc) => {
-          results.push({ id: doc.id, ...doc.data() })
-        })
-        setData(results)
-        setError(false)
-        setIsPending(false)
-      }
+          let results = []
+          snapshot.docs.forEach((doc) => {
+            results.push({ id: doc.id, ...doc.data() })
+          })
+          if (!isCancelled) {
+            setData(results)
+            setError(false)
+            setIsPending(false)
+          }
+        }
     })
-  }, [query])
+    // added cleanup function
+    return () => setIsCancelled(true)
+  }, [query, isCancelled])
 
   return (
     <div className="search">

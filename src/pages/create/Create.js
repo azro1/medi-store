@@ -56,7 +56,7 @@ const Create = () => {
     try {
       setIsPending(true)
       await projectFirestore.collection("medications").add(doc)
-      history.push("/")
+      history.push("/dashboard")
     } catch(err) {
         setIsPending(false)
         setError("Sorry 😞 we can't add your medication right now...")

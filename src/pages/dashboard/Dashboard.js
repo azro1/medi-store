@@ -9,6 +9,7 @@ import './Dashboard.css'
 import MedicationList from '../../components/medicationlist/MedicationList'
 
 const Dashboard = () => {
+  const [isCancelled, setIsCancelled] = useState(false)
   const { mode } = useTheme()
   const [data, setData] = useState(null)
   const [isPending, setIsPending] = useState(false)
@@ -18,21 +19,29 @@ const Dashboard = () => {
     setIsPending(true)
     projectFirestore.collection("medications").get().then((snapshot) => {
       if (snapshot.empty) {
-        setError('Click "Add Medication" to start adding your medications')
-        setIsPending(false)
+        if (!isCancelled) {
+          setError('Click "Add Medication" to start adding your medications')
+          setIsPending(false)
+        }
       } else {
         let results = []
         snapshot.docs.forEach((doc) => {
           results.push({ id: doc.id, ...doc.data() })
         })
-        setData(results)
-        setIsPending(false)
+        if (!isCancelled) {
+          setData(results)
+          setIsPending(false)
+        }
       }
     }).catch((err) => {
-         setError("Oh no 😞 so sorry! Please try again later... ")
-         setIsPending(false)
+        if (!isCancelled) {
+          setError("Oh no 😞 so sorry! Please try again later... ")
+          setIsPending(false)
+        }
     })
-  }, [])
+    // added cleanup function
+    return () => setIsCancelled(true)
+  }, [isCancelled])
 
   return (
     <div className="dashboard">
