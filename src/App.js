@@ -14,47 +14,50 @@ import Search from './pages/search/Search'
 import Create from './pages/create/Create'
 import Medication from './pages/medication/Medication'
 import Edit from './pages/edit/Edit'
+import { useAuthContext } from './hooks/useAuthContext';
 
 //styles
 import './App.css';
 
 function App() {
   const { mode } = useTheme()
+  const { authIsReady } = useAuthContext()
 
   return (
     <div className={`App ${mode}`}>
-      <BrowserRouter>
-        <Navbar />
-        <ThemeSelector />
-        <Searchbar />
-
-        <Switch>
-          <Route path="/login" >
-            <Login />
-          </Route>
-          <Route path="/signup" >
-            <Signup />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/search">
-            <Search />
-          </Route>
-          <Route path="/create">
-            <Create />
-          </Route>
-          <Route path="/medications/:id">
-            <Medication />
-          </Route>
-          <Route path="/edit/:id">
-            <Edit />
-          </Route>
-          <Route path="*" >
-            <Redirect to="/" />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      {authIsReady && (
+        <BrowserRouter>
+          <Navbar />
+          <ThemeSelector />
+          <Searchbar />
+          <Switch>
+            <Route path="/login" >
+              <Login />
+            </Route>
+            <Route path="/signup" >
+              <Signup />
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/search">
+              <Search />
+            </Route>
+            <Route path="/create">
+              <Create />
+            </Route>
+            <Route path="/medications/:id">
+              <Medication />
+            </Route>
+            <Route path="/edit/:id">
+              <Edit />
+            </Route>
+            <Route path="*" >
+              <Redirect to="/" />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      )}
     </div>
   );
 }
