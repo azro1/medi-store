@@ -1,57 +1,22 @@
-import { useParams, useHistory, Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useParams, Link } from 'react-router-dom'
 import { useTheme } from '../../hooks/useTheme'
-import { projectFirestore } from '../../firebase/config'
+import { useFetchDoc } from '../../hooks/useFetchDoc'
+import { useDelete } from '../../hooks/useDelete'
 
 // styles
 import './Medication.css'
 
 const Medication = () => {
-  const [isCancelled, setIsCancelled] = useState(false)
-  const [medication, setMedication] = useState(null)
-  const [isPending, setIsPending] = useState(false)
-  const [error, setError] = useState(false)
   const { id } = useParams()
-  const history = useHistory()
   const { mode } = useTheme()
+  const { medication, error, isPending } = useFetchDoc(id)
+  const { deleteDoc } = useDelete()
 
   // delete medication
   const handleDelete = async (id) => {
-    try {
-      await projectFirestore.collection("medications").doc(id).delete()
-      history.push('/')
-    } catch (err) {
-        console.log(err.message)
-    }
+    deleteDoc(id)
   }
-
-  useEffect(() => {
-    setIsPending(true)
-    projectFirestore.collection("medications").doc(id).get().then((doc) => {
-      if (doc.exists) {
-        if (!isCancelled) {
-          setIsPending(false)
-          setMedication(doc.data())
-        }
-      } else {
-        if (!isCancelled) {
-          setIsPending(false)
-          setError("Sorry! That medication doesn't exist...")
-        }
-      }
-    })
-    // added cleanup function
-    return () => setIsCancelled(true)
-  }, [id, isCancelled])
-
-  useEffect(() => {
-    if (error) {
-      setTimeout(() => {
-        history.push('/dashboard')
-      }, 2000)
-    }
-  }, [error, history])
-
+  
   return (
     <div className={`medication ${mode}`}>
         {isPending && <p className={`loading ${mode}`}>please wait...</p>}

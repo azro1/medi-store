@@ -1,13 +1,12 @@
 import { useRef, useState, useEffect } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useTheme } from '../../hooks/useTheme';
-import { projectFirestore } from '../../firebase/config';
+import { useEdit } from '../../hooks/useEdit';
 
 // styles
 import './Edit.css'
 
 const Edit = () => {
-    const [isCancelled, setIsCancelled] = useState(false)
     const [name, setName] = useState('');
     const [dosage, setDosage] = useState('');
     const [dosageForm, setDosageForm] = useState('');
@@ -28,31 +27,9 @@ const Edit = () => {
     const [contains, setContains] = useState([]);
     const ingredientInput = useRef(null);
     const { id } = useParams()
-    const history = useHistory()
 
     const { mode } = useTheme()
-
-    // created state for data
-    const [data, setData] = useState(null)
-    const [isPending, setIsPending] = useState(false)
-    const [error, setError] = useState(false)
-
-    useEffect(() => {
-      setIsPending(true)
-      projectFirestore.collection("medications").doc(id).get().then((doc) => {
-        if (!isCancelled) {
-          setData(doc.data())
-          setIsPending(false)
-        }
-      }).catch((err) => {
-        if (!isCancelled) {
-          setError("Sorry 😞 we can't get that medication right now...")
-          setIsPending(false)
-        }
-      })
-      // added cleanup function
-      return () => setIsCancelled(true)
-    }, [id, isCancelled])
+    const { data, isPending, error, update } = useEdit(id) // get medication
 
     useEffect(() => {
       if (data) {
@@ -77,11 +54,10 @@ const Edit = () => {
     }, [data]);
 
     // form submit function
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
       e.preventDefault()
 
-      try {
-        await projectFirestore.collection("medications").doc(id).update({
+      const doc = {
           name: name,
           dosage: dosage,
           dosageForm: dosageForm,
@@ -98,12 +74,10 @@ const Edit = () => {
           storage: storage,
           sideEffects: sideEffects,
           warning: warning
-        })
-        history.push("/dashboard")
-      } catch (error) {
-          setError("Sorry 😞 we can't update your medication right now...")
-      }
+        }
 
+        // update medication
+        update(doc)
     }
 
     // add ingredients function
@@ -246,10 +220,10 @@ const Edit = () => {
                 ref={ingredientInput}
                 onChange={(e) => setNewIngredient(e.target.value)}
               />
-              <button onClick={handleAdd} className='add-btn'>
+              <button onClick={handleAdd} className='add-btn btn'>
                 Add
               </button>
-              <button onClick={handleRemove} className='delete-btn'>
+              <button onClick={handleRemove} className='delete-btn btn'>
                 Delete
               </button>
             </div>
@@ -298,7 +272,7 @@ const Edit = () => {
               required
             />
           </label>
-          <button className='add-btn'>Add</button>
+          <button className="add-btn btn">Add</button>
         </div>
       </form>
     )

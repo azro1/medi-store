@@ -36,7 +36,7 @@
 }
 
 .navbar .logout p {
-    color: #fff;
+    color: #EEE8AA;
     font-family: 'Work Sans', sans-serif;
     font-size: 1.1rem;
     margin-right: 0.8rem;
@@ -57,7 +57,7 @@
 }
 
 .navbar .logout button:hover {
-    background: #FF0000;
+    background: #BDB76B;
 }
 
 .navbar .logout a {
@@ -74,7 +74,7 @@
 }
 
 .navbar .logout a:hover {
-    background: #FF0000;
+    background: #BDB76B;
 }
 
 .navbar .login {

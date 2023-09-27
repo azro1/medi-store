@@ -1,8 +1,7 @@
 // styles
 import { useState, useRef } from 'react'
-import { useHistory } from 'react-router-dom'
 import { useTheme } from '../../hooks/useTheme';
-import { projectFirestore } from '../../firebase/config';
+import { useCreate } from '../../hooks/useCreate';
 
 import './Create.css';
 
@@ -26,13 +25,10 @@ const Create = () => {
   const [newIngredient, setNewIngredient] = useState('');
   const [contains, setContains] = useState([]);
   const ingredientInput = useRef(null);
-  const history = useHistory()
   const { mode } = useTheme()
+  const { error, isPending, create } = useCreate()
 
-  const [isPending, setIsPending] = useState(false)
-  const [error, setError] = useState(false)
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const doc = {      
       name,
@@ -52,15 +48,8 @@ const Create = () => {
       sideEffects,
       warning
     }
-
-    try {
-      setIsPending(true)
-      await projectFirestore.collection("medications").add(doc)
-      history.push("/dashboard")
-    } catch(err) {
-        setIsPending(false)
-        setError("Sorry 😞 we can't add your medication right now...")
-    }
+     // add doc to firebase
+     create(doc)
   };
 
   const handleAdd = (e) => {
@@ -188,7 +177,7 @@ const Create = () => {
               ref={ingredientInput}
               onChange={(e) => setNewIngredient(e.target.value)}
             />
-            <button onClick={handleAdd} className='form-btn'>
+            <button onClick={handleAdd} className='form-btn btn'>
               Add
             </button>
           </div>
@@ -236,7 +225,7 @@ const Create = () => {
             required
           />
         </label>
-        <button className='form-btn'>Add</button>
+        <button className='form-btn btn'>Add</button>
       </div>
     </form>
   );

@@ -1,78 +1,43 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
+import { projectFirestore } from "../firebase/config"
+import {useAuthContext} from './useAuthContext'
 
-const useFetch = (url, method="GET") => {
-    const [data, setData] = useState(null)
-    const [isPending, setIsPending] = useState(false)
-    const [error, setError] = useState(null)
-    const [options, setOptions] = useState(null)
+const useFetch = () => {
+  const [isCancelled, setIsCancelled] = useState(false)
+  const [isPending, setIsPending] = useState(false)
+  const [error, setError] = useState(false)
+  const [data, setData] = useState(null)
+  const { user } = useAuthContext()
 
-    const postData = (postData) => {
-        setOptions({
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(postData)
+  useEffect(() => {
+    setIsPending(true)
+    projectFirestore.collection("medications").get().then((snapshot) => {
+      if (snapshot.empty) {
+        if (!isCancelled && user) {
+          setError(`${user.displayName}, click "Add Medication" to start adding your meds`)
+          setIsPending(false)
+        }
+      } else {
+        let results = []
+        snapshot.docs.forEach((doc) => {
+          results.push({ id: doc.id, ...doc.data() })
         })
-    }
-
-    const updateData = (updatedData) => {
-        setOptions({
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(updatedData)
-        })
-    }
-
-    const deleteData = () => {
-        setOptions({
-            method: "DELETE"
-        })
-    }
-   
-    useEffect(() => {
-        const controller = new AbortController()
-        const fetchData = async (fetchOptions) => {
-            setIsPending(true)
-            try {
-                const response = await fetch(url, {...fetchOptions, signal: controller.signal })
-
-                if (!response.ok) {
-                   throw new Error("Could not fetch data")
-                }
-                const jsonData = await response.json()
-                setIsPending(false)
-                setError(null)
-                setData(jsonData)
-
-            } catch (err) {
-                if (err.name === "AbortError") {
-                    console.log('fetch was aborted')
-                } else {
-                    setIsPending(false)
-                    setError(<p className="error">Oh no, 😞 let's try that again ...</p>)
-                    console.log(err.message)
-                }
-            }
+        if (!isCancelled) {
+          setData(results)
+          setIsPending(false)
         }
-        if (method === "GET") {
-            fetchData()
+      }
+    }).catch((err) => {
+        if (!isCancelled) {
+          setError("Oh no, 😞 let's try that again...")
+          setIsPending(false)
         }
-        if ((method === "POST" && options) || 
-        (method === "DELETE" && options) || 
-        (method === "PUT" && options)
-        ) {
-           fetchData(options)
-        }
-        return () => {
-            controller.abort()
-        }
-    }, [url, method, options])
-
-    return { data, isPending, error, postData, deleteData, updateData }
-
+    })
+    // added cleanup function
+    return () => setIsCancelled(true)
+  }, [isCancelled, user])
+  
+  return { isPending, error, data }
 }
 
-export default useFetch
+export { useFetch }

@@ -1,6 +1,7 @@
 .dashboard {
     max-width: 85vw;
     margin: 0 auto;
+    padding-bottom: 2.8rem;
 }
 
 /* media queries */

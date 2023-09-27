@@ -1,6 +1,6 @@
 .searchbar {
     max-width: 85vw;
-    margin: 0.2rem auto;
+    margin: 0.4rem auto 0;
     display: flex;
     justify-content: flex-end;
 }

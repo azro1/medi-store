@@ -1,8 +1,7 @@
 import { useLocation } from 'react-router-dom'
 import MedicationList from '../../components/medicationlist/MedicationList'
 import { useTheme } from '../../hooks/useTheme'
-import { projectFirestore } from '../../firebase/config'
-import { useState, useEffect } from 'react'
+import { useSearch } from '../../hooks/useSearch'
 
 // styles
 import './Search.css'
@@ -13,35 +12,7 @@ const Search = () => {
   
   const query = queryParams.get('q')  
   const { mode } = useTheme()
-
-  const [isCancelled, setIsCancelled] = useState(false)
-  const [data, setData] = useState(null)
-  const [isPending, setIsPending] = useState(false)
-  const [error, setError] = useState(false)
-  
-  useEffect(() => {
-    setIsPending(true)
-    projectFirestore.collection("medications").where('name', '==', query).get().then((snapshot) => {
-      if (snapshot.empty) {
-        if (!isCancelled) {
-          setError("No medications to load...")
-          setIsPending(false)
-        }
-      } else {
-          let results = []
-          snapshot.docs.forEach((doc) => {
-            results.push({ id: doc.id, ...doc.data() })
-          })
-          if (!isCancelled) {
-            setData(results)
-            setError(false)
-            setIsPending(false)
-          }
-        }
-    })
-    // added cleanup function
-    return () => setIsCancelled(true)
-  }, [query, isCancelled])
+  const { data, error, isPending } = useSearch(query)
 
   return (
     <div className="search">

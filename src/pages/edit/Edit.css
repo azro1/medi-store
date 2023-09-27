@@ -33,17 +33,18 @@
 
 .edit-form .ingredients .add-btn {
     margin-left: 0.625rem;
+    margin-top: 0;
     position: relative;
     top: -0.45rem;
 }
 
 .edit-form .ingredients .delete-btn {
     margin-left: 0.625rem;
+    margin-top: 0;
     position: relative;
     top: -0.45rem;
-    width: 40%;
     cursor: pointer;
-    padding: 0.925rem;
+    padding: 0.825rem;
     background: #FF0000;
     color: #fff;
     font-weight: 900;
@@ -63,8 +64,8 @@
 }
 
 .edit-form .add-btn {
-    width: 40%;
-    padding: 0.925rem;
+    margin: 0;
+    padding: 0.825rem 1.5rem;
     background: #000;
     color: #fff;
     font-weight: 900;
