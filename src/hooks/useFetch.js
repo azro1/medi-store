@@ -11,28 +11,31 @@ const useFetch = () => {
 
   useEffect(() => {
     setIsPending(true)
-    projectFirestore.collection("medications").get().then((snapshot) => {
-      if (snapshot.empty) {
-        if (!isCancelled && user) {
-          setError(`${user.displayName}, click "Add Medication" to start adding your meds`)
-          setIsPending(false)
-        }
-      } else {
-        let results = []
-        snapshot.docs.forEach((doc) => {
-          results.push({ id: doc.id, ...doc.data() })
+      if (user) {
+        projectFirestore.collection("medications").where('uid', '==', user.uid).get().then((snapshot) => {
+          if (snapshot.empty) {
+            if (!isCancelled) {
+              setError(`You don't have any meds ${user.displayName}! Click "Add Medication" to get started...`)
+              setIsPending(false)
+            }
+          } else {
+            let results = []
+            snapshot.docs.forEach((doc) => {
+              results.push({ id: doc.id, ...doc.data() })
+            })
+            if (!isCancelled) {
+              setData(results)
+              setIsPending(false)
+            }
+          }
+        }).catch((err) => {
+            if (!isCancelled) {
+              setError("Oh no, 😞 let's try that again...")
+              setIsPending(false)
+            }
         })
-        if (!isCancelled) {
-          setData(results)
-          setIsPending(false)
-        }
       }
-    }).catch((err) => {
-        if (!isCancelled) {
-          setError("Oh no, 😞 let's try that again...")
-          setIsPending(false)
-        }
-    })
+
     // added cleanup function
     return () => setIsCancelled(true)
   }, [isCancelled, user])

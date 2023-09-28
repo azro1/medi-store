@@ -3,6 +3,7 @@ import { useState, useRef } from 'react'
 import { useTheme } from '../../hooks/useTheme';
 import { useCreate } from '../../hooks/useCreate';
 import { timestamp } from '../../firebase/config';
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 import './Create.css';
 
@@ -29,6 +30,8 @@ const Create = () => {
   const { mode } = useTheme()
   const { error, isPending, create } = useCreate()
   const createdAt = timestamp.fromDate(new Date())
+  const { user } = useAuthContext()
+  const uid = user.uid;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +52,8 @@ const Create = () => {
       storage,
       sideEffects,
       warning,
-      createdAt
+      createdAt,
+      uid
     }
      // add doc to firebase
      create(doc)

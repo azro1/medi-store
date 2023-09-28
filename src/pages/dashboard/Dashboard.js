@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-       {user && <h1 className={`page-title ${mode}`}>{user.displayName}, here's your meds...</h1>}
+       {user && <h1 className={`page-title ${mode}`}>{user.displayName}'s meds</h1>}
        {error && <p className={`error ${mode}`}>{error}</p>}
        {isPending && <p className={`loading ${mode}`}>please wait...</p>}
        {data && <MedicationList medications={data} />}

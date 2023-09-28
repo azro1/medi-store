@@ -82,6 +82,11 @@ html, body, #root {
   font-family: 'Work Sans', sans-serif;
 }
 
+.error {
+  line-height: 1.5;
+
+}
+
 .page-title {
   text-align: center;
   margin: 2.5rem 0;
@@ -106,20 +111,18 @@ html, body, #root {
   color: #e4e4e4;
 }
 
-.loading.dark, 
-.error.dark {
+.loading, .error.dark {
   color: #e4e4e4;
 }
 
+
 /* media queries */
-@media only screen and (max-width: 454px)  {
-  .page-title {
-     line-height: 1.3;
+@media only screen and (max-width: 480px)  {
+  .loading, .error {
+     margin: 1rem 0 1.5rem;
   }
 }
 
 @media only screen and (max-width: 630px)  {
-  .error {
-      line-height: 1.3;
-  }
+
 }

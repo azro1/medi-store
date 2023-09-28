@@ -62,8 +62,8 @@ const Medication = () => {
             </section>
           </div>
           <div className="buttons">
-              <Link className="editBtn" to={`/edit/${id}`} >Edit</Link>
-              <button className="delete" onClick={() => handleDelete(id)} >Delete</button> 
+              <Link className="edit btn" to={`/edit/${id}`} >Edit</Link>
+              <button className="delete btn" onClick={() => handleDelete(id)} >Delete</button> 
           </div>
         </>
        )}

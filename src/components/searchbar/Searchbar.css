@@ -27,6 +27,12 @@
 }
 
 /* media queries */
+@media only screen and (max-width: 480px)  {
+    .searchbar {
+        margin-top: 2rem;
+    }
+}
+
 @media only screen and (max-width: 768px)  {
     .searchbar input {
         padding: 0.725rem 0.825rem;
