@@ -31,9 +31,10 @@ const Create = () => {
   const { error, isPending, create } = useCreate()
   const createdAt = timestamp.fromDate(new Date())
   const { user } = useAuthContext()
-  const uid = user.uid;
 
   const handleSubmit = (e) => {
+    const uid = user.uid;
+
     e.preventDefault();
     const doc = {      
       name,
@@ -72,7 +73,7 @@ const Create = () => {
 
   return (
     <form className={`medication-form ${mode}`} onSubmit={handleSubmit}>
-      <h1 className={`page-title ${mode}`}>Add a new Medication</h1>
+      <h1 className={`page-title ${mode}`}>Add Medication</h1>
       {isPending && <p className={`loading ${mode}`}>please wait...</p>}
       {error && <p className={`error ${mode}`}>{error}</p>}
       <div className='form-control'>
