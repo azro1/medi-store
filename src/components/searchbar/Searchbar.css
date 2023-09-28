@@ -25,3 +25,10 @@
 .searchbar.dark label {
     color: #e4e4e4;
 }
+
+/* media queries */
+@media only screen and (max-width: 768px)  {
+    .searchbar input {
+        padding: 0.725rem 0.825rem;
+    }
+}

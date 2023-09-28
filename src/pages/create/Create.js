@@ -2,6 +2,7 @@
 import { useState, useRef } from 'react'
 import { useTheme } from '../../hooks/useTheme';
 import { useCreate } from '../../hooks/useCreate';
+import { timestamp } from '../../firebase/config';
 
 import './Create.css';
 
@@ -27,6 +28,7 @@ const Create = () => {
   const ingredientInput = useRef(null);
   const { mode } = useTheme()
   const { error, isPending, create } = useCreate()
+  const createdAt = timestamp.fromDate(new Date())
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +48,8 @@ const Create = () => {
       instructions,
       storage,
       sideEffects,
-      warning
+      warning,
+      createdAt
     }
      // add doc to firebase
      create(doc)
