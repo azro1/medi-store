@@ -83,7 +83,7 @@ const Create = () => {
             type='text'
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -92,7 +92,7 @@ const Create = () => {
             type='text'
             value={dosage}
             onChange={(e) => setDosage(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -101,7 +101,7 @@ const Create = () => {
             type='text'
             value={dosageForm}
             onChange={(e) => setDosageForm(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -110,7 +110,7 @@ const Create = () => {
             type='text'
             value={frequency}
             onChange={(e) => setFrequency(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -119,7 +119,7 @@ const Create = () => {
             type='text'
             value={adminRoute}
             onChange={(e) => setAdminRoute(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -128,7 +128,7 @@ const Create = () => {
             type='date'
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -137,7 +137,7 @@ const Create = () => {
             type='date'
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -146,7 +146,7 @@ const Create = () => {
             type='text'
             value={doctorName}
             onChange={(e) => setDoctorName(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -155,7 +155,7 @@ const Create = () => {
             type='email'
             value={doctorEmail}
             onChange={(e) => setDoctorEmail(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -164,7 +164,7 @@ const Create = () => {
             type='text'
             value={pharmacyName}
             onChange={(e) => setPharmacyName(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -173,7 +173,7 @@ const Create = () => {
             type='email'
             value={pharmacyEmail}
             onChange={(e) => setPharmacyEmail(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -203,7 +203,7 @@ const Create = () => {
             type='text'
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -212,7 +212,7 @@ const Create = () => {
             type='text'
             value={storage}
             onChange={(e) => setStorage(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -221,7 +221,7 @@ const Create = () => {
             type='text'
             value={sideEffects}
             onChange={(e) => setSideEffects(e.target.value)}
-            required
+            // required
           />
         </label>
         <label>
@@ -230,7 +230,7 @@ const Create = () => {
             type='text'
             value={warning}
             onChange={(e) => setWarning(e.target.value)}
-            required
+            // required
           />
         </label>
         <button className='form-btn btn'>Add</button>

@@ -1,5 +1,5 @@
 import { useTheme } from '../../hooks/useTheme'
-import { useFetch } from '../../hooks/useFetch'
+import { useCollection } from '../../hooks/useCollection'
 import { useAuthContext } from '../../hooks/useAuthContext'
 
 // styles
@@ -11,7 +11,8 @@ import MedicationList from '../../components/medicationlist/MedicationList'
 const Dashboard = () => {
   const { mode } = useTheme()
   const { user } = useAuthContext()
-  const { error, isPending, documents } = useFetch('medications', ['uid', '==', user.uid], ['createdAt', 'desc'])
+
+  const { error, isPending, documents } = useCollection("medications", ['createdAt', 'desc'])
 
   return (
     <div className="dashboard">

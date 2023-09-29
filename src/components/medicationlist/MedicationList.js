@@ -5,7 +5,7 @@ import { useTheme } from '../../hooks/useTheme'
 import './MedicationList.css'
 
 const MedicationList = ({ medications }) => {
-  const { mode } = useTheme()
+  const { mode, color } = useTheme()
 
   return (
     <div className="medication-list">
@@ -14,7 +14,7 @@ const MedicationList = ({ medications }) => {
            className={`card ${mode}`} 
            style={{textDecoration: "none"}} 
            key={medication.id} >
-              <h3>{medication.name}</h3>
+              <h3 style={{ color: color }}>{medication.name}</h3>
               <p>Dosage: <span>{medication.dosage}</span></p>
               <p>Type: <span>{medication.dosageForm}</span></p>
               <p>Instructions: <span>{medication.instructions.substring(0, 50)}...</span></p>
