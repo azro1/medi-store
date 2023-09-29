@@ -24,7 +24,7 @@ const Signup = () => {
       <div className="form-control">
         <label>
             <span>Username:</span>
-            <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} maxLength="8" />
+            <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} maxLength="8" required />
         </label>
         <label>
             <span>Email:</span>
@@ -35,7 +35,7 @@ const Signup = () => {
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
         {!isPending && <button className="btn">sign up</button>}
-        {isPending && <button className="btn" disabled>please wait...</button>}
+        {isPending && <button className="btn" disabled>processing...</button>}
         
       </div>
     </form>

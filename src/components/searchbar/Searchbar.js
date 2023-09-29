@@ -23,7 +23,7 @@ const Searchbar = () => {
         <div className={`searchbar ${mode}`}>
           <form onSubmit={handleSubmit}>
               <label htmlFor="search">Search</label>
-              <input type="text" id="search" onChange={(e) => setTerm(e.target.value)} maxLength="20" autoComplete="off" />
+              <input type="text" id="search" onChange={(e) => setTerm(e.target.value)} maxLength="16" autoComplete="off" />
           </form>
         </div>
       )}

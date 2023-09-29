@@ -11,6 +11,7 @@
   padding: 1.5rem;
   transition: 0.2s;
   background: #fff;
+  word-wrap: break-word;
 }
 
 .medication-list .card:hover {
@@ -19,7 +20,8 @@
 
 .medication-list .card h3 {
   font-size: 1.6rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 1rem;
+  line-height: 1;
   color: #000;
 }
 
