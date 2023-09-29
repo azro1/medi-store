@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { useTheme } from './hooks/useTheme';
 
 //components
@@ -26,7 +26,7 @@ function App() {
   return (
     <div className={`App ${mode}`}>
       {authIsReady && (
-        <BrowserRouter>
+        <HashRouter>
           <Navbar />
           <ThemeSelector />
           <Searchbar />
@@ -64,7 +64,7 @@ function App() {
               {!user && <Redirect to="/login" />}
             </Route>
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       )}
     </div>
   );
