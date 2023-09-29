@@ -111,7 +111,8 @@ html, body, #root {
   color: #e4e4e4;
 }
 
-.loading, .error.dark {
+.loading.dark, 
+.error.dark {
   color: #e4e4e4;
 }
 

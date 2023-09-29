@@ -24,7 +24,7 @@ const Medication = () => {
         {medication && (
         <>
         <h2 className={`page-title ${mode}`}>{medication.name}</h2>
-  
+
         <div className="info">
             <div className="dates">
               <p>Start Date: <span>{medication.startDate}</span></p>
