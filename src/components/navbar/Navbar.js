@@ -16,7 +16,7 @@ const { user } = useAuthContext()
     <div className="navbar" style={{ background: color }} >
         <nav>
           
-          <Link to="/dashboard" className="storename">
+          <Link to="/dashboard" className="storename" replace>
             <h1>MediStore</h1>
             <img src={storeLogo} alt="medication" />
           </Link>
@@ -27,14 +27,14 @@ const { user } = useAuthContext()
                   <p>hi, {user.displayName}</p>
                 </span>
                 <button onClick={() =>logout()}>Logout</button>
-                <Link to="/create">Add Medication</Link>
+                <Link to="/create" replace >Add Medication</Link>
              </div>
            )}
             
            {!user && (
              <div className="login">
-               <Link to="/login">Login</Link>
-               <Link to="/signup">Signup</Link>       
+               <Link to="/login" replace >Login</Link>
+               <Link to="/signup" replace >Signup</Link>       
              </div>
            )}
 
