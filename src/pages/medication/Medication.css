@@ -67,7 +67,7 @@
 }
 
 .medication .buttons .delete:hover {
-    background: #FF0000;
+    background: #e03c31;
     color: #fff;
 }
 .medication .buttons a:hover {

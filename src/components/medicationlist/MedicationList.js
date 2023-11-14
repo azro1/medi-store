@@ -14,7 +14,7 @@ const MedicationList = ({ medications }) => {
            className={`card ${mode}`} 
            style={{textDecoration: "none"}} 
            key={medication.id} >
-              <h3 style={{ color: color }}>{medication.name}</h3>
+              <h3 style={{ color: color === '#232524' ? '#e03c31' : color }}>{medication.name}</h3>
               <p>Dosage: <span>{medication.dosage}</span></p>
               <p>Type: <span>{medication.dosageForm}</span></p>
               <p>Instructions: <span>{medication.instructions.substring(0, 50)}...</span></p>
