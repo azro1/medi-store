@@ -8,7 +8,7 @@ import './Medication.css'
 
 const Medication = () => {
   const { id } = useParams()
-  const { mode } = useTheme()
+  const { mode, color } = useTheme()
   const { medication, error, isPending } = useFetchDoc(id)
   const { deleteDoc } = useDelete()
 
@@ -23,7 +23,7 @@ const Medication = () => {
         {error && <p style={{position: "relative", top: "1rem"}} className={`error ${mode}`}>{error}</p>}
         {medication && (
         <>
-        <h2 className={`page-title ${mode}`}>{medication.name}</h2>
+        <h2 className={`page-title ${mode}`} style={{ color: color == '#232524' ? '#e03c31' : color }}>{medication.name}</h2>
 
         <div className="info">
             <div className="dates">

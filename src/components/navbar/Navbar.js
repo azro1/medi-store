@@ -13,34 +13,46 @@ const { logout } = useLogout()
 const { user } = useAuthContext()
 
   return (
-    <div className="navbar" style={{ background: color }} >
-        <nav>
-          
-          <Link to="/dashboard" className="storename">
-            <h1>MediStore</h1>
-            <img src={storeLogo} alt="medication" />
-          </Link>
+    <div className='navbar' style={{ background: color }}>
+      <nav>
+        <Link to='/dashboard' className='storename'>
+          <h1>MediStore</h1>
+          <img src={storeLogo} alt='medication' />
+        </Link>
 
-            {user && (
-              <div className="logout">
-                <span className="displayName">
-                  <p>hi, {user.displayName}</p>
-                </span>
-                <button onClick={() =>logout()}>Logout</button>
-                <Link to="/create">Add Medication</Link>
-             </div>
-           )}
-            
-           {!user && (
-             <div className="login">
-               <Link to="/login">Login</Link>
-               <Link to="/signup">Signup</Link>       
-             </div>
-           )}
+        {user && (
+          <div className='logout'>
+            <span className='displayName'>
+              <p>hi, {user.displayName}</p>
+            </span>
+            <Link
+              style={{
+                backgroundColor: color == '#232524' ? '#e03c31' : '#232524',
+              }}
+              to='/create'
+            >
+              Add Medication
+            </Link>
+            <button
+              style={{
+                backgroundColor: color == '#232524' ? '#e03c31' : '#232524',
+              }}
+              onClick={() => logout()}
+            >
+              Logout
+            </button>
+          </div>
+        )}
 
-        </nav>
+        {!user && (
+          <div className='login'>
+            <Link to='/login'>Login</Link>
+            <Link to='/signup'>Signup</Link>
+          </div>
+        )}
+      </nav>
     </div>
-  )
+  );
 }
 
 export default Navbar
