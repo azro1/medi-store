@@ -26,16 +26,16 @@ const { user } = useAuthContext()
               <p>hi, {user.displayName}</p>
             </span>
             <Link
-              style={{
-                backgroundColor: color == '#232524' ? '#e03c31' : '#232524',
-              }}
               to='/create'
+              style={{
+                backgroundColor: color === '#232524' ? '#e03c31' : '#232524',
+              }}
             >
               Add Medication
             </Link>
             <button
               style={{
-                backgroundColor: color == '#232524' ? '#e03c31' : '#232524',
+                backgroundColor: color === '#232524' ? '#e03c31' : '#232524',
               }}
               onClick={() => logout()}
             >
