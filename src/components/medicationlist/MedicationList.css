@@ -59,6 +59,11 @@
 
 /* media queries */
 @media only screen and (max-width: 658px) {
+  .medication-list {
+    grid-template-columns: repeat(auto-fill, minmax(270px, .6fr));
+    justify-content: center;
+  }
+
   .medication-list .card h3 {
      line-height: 1.2;
   }
