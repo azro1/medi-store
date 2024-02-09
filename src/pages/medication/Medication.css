@@ -59,7 +59,8 @@
 .medication .buttons a {
     font-family: 'Work Sans', sans-serif;
     border: 0.125rem solid #000;
-    padding: 0.825rem 1.5rem;   
+    border-radius: 0.5rem;
+    padding: 0.625rem;   
     text-decoration: none;
     background: #fff;
     color: #000;

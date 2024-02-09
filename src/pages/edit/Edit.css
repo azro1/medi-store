@@ -19,7 +19,7 @@
 .edit-form .form-control input {
     display: block;
     width: 100%;
-    padding: 0.825rem;
+    padding: 0.725rem;
     margin-bottom: 0.938rem;
     font-family: 'Work Sans', sans-serif;
     font-size: 1rem;
@@ -33,6 +33,7 @@
 
 .edit-form .ingredients .add-btn {
     margin-left: 0.625rem;
+    border-width: 0;
     margin-top: 0;
     position: relative;
     top: -0.45rem;
@@ -40,14 +41,12 @@
 
 .edit-form .ingredients .delete-btn {
     margin-left: 0.625rem;
+    border-width: 0;
     margin-top: 0;
     position: relative;
     top: -0.45rem;
     cursor: pointer;
-    padding: 0.825rem;
     background: #FF0000;
-    color: #fff;
-    font-weight: 900;
 }
 
 .edit-form .form-control p {
@@ -63,13 +62,9 @@
     color: #000;
 }
 
-.edit-form .add-btn {
+.edit-form .submit-btn {
     margin: 0;
-    padding: 0.825rem 1.5rem;
-    background: #000;
-    color: #fff;
-    font-weight: 900;
-    cursor: pointer;
+    border-width: 0;
 }
 
 
