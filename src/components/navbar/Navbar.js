@@ -22,13 +22,13 @@ const { user } = useAuthContext()
 
         {user && (
           <div className='logout'>
-            <span className='displayName'>
-              <p>hi, {user.displayName}</p>
+            <span className='displayname'>
+              <p>Hi, {user.displayName}</p>
             </span>
             <Link
               to='/create'
               style={{
-                backgroundColor: color === '#232524' ? '#e03c31' : '#232524'
+                backgroundColor: color === '#232524' ? '#A9938B' : '#232524'
               }}
               replace
             >
@@ -36,7 +36,7 @@ const { user } = useAuthContext()
             </Link>
             <button
               style={{
-                backgroundColor: color === '#232524' ? '#e03c31' : '#232524',
+                backgroundColor: color === '#232524' ? '#A9938B' : '#232524',
               }}
               onClick={() => logout()}
             >

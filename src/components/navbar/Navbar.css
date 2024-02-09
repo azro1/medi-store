@@ -33,17 +33,23 @@
 .navbar .logout {
     display: flex;
     align-items: center;
+    gap: 0.6rem;
 }
 
-.navbar .logout p {
+.navbar .displayname {
+    flex: 1;
+}
+
+.navbar .displayname p {
     color: #fff;
     font-family: 'Work Sans', sans-serif;
-    font-size: 1.1rem;
-    margin-right: 0.8rem;
+    font-size: 1rem;
+    margin-right: 1.2rem;
+    white-space: nowrap;
 }
 
 .navbar .logout button {
-    padding: 0.825rem;
+    padding: 0.725rem;
     font-family: 'Work Sans', sans-serif;
     border-radius: 0.5rem;
     background: #2F4F4F;
@@ -51,19 +57,20 @@
     font-size: 1rem;
     color: #fff;
     transition: 0.3s ease-in-out;
+    border-width: 0;
+    flex: 1;
 }
 
 .navbar .logout a {
     font-family: 'Work Sans', sans-serif;
     background: #2F4F4F;
-    padding: 0.825rem;
+    padding: 0.725rem;
     text-decoration: none;
     border-radius: 0.5rem;
     color: #fff;
     font-size: 1rem;
     transition: 0.3s ease-in-out;
     min-width: fit-content;
-    margin-right: 0.8rem;
 }
 
 .navbar .login {
@@ -87,34 +94,15 @@
     }
 
     .navbar .logout, .login {
-        margin: 2rem 0;
+        margin: 2rem 0 1.5rem;
     }
 }
 
 
 @media only screen and (max-width: 436px)  {
 
-    .navbar a.storename {
-        width: 100%;
-        justify-content: start;
-    }
-
     .navbar .logout {
-        flex-wrap: wrap;
-        justify-content: end;
-        row-gap: 1rem;
-    }
-
-    .navbar .logout .displayName {
-        margin-right: auto;
-    }
-
-    .navbar .logout button {
-        margin-left: 0.8rem;
-    }
-
-    .navbar .logout a {
-        margin-right: 0;
+      flex-wrap: wrap;
     }
 }
 

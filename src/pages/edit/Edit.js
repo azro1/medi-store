@@ -272,7 +272,7 @@ const Edit = () => {
               required
             />
           </label>
-          <button className="add-btn btn">Add</button>
+          <button className="submit-btn btn">Submit</button>
         </div>
       </form>
     )
