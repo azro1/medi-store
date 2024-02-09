@@ -45,7 +45,6 @@
 .navbar .logout button {
     padding: 0.825rem;
     font-family: 'Work Sans', sans-serif;
-    border: 0.1rem solid #fff;
     border-radius: 0.5rem;
     background: #2F4F4F;
     cursor: pointer;
@@ -56,7 +55,6 @@
 
 .navbar .logout a {
     font-family: 'Work Sans', sans-serif;
-    border: 0.1rem solid #fff;
     background: #2F4F4F;
     padding: 0.825rem;
     text-decoration: none;
