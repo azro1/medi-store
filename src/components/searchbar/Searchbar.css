@@ -6,19 +6,19 @@
 }
 
 .searchbar label {
-    color: #000;
-    font-size: 1.3rem;
+    color: #232524;
+    font-size: 0.9rem;
     margin-right: 0.75rem;
+    font-family: 'Verdana', sans-serif;
 }
 
 .searchbar input {
-    padding: 0.625rem;
+    padding: 0.5rem;
     border-radius: 0.5rem;
-    font-size: 1rem;
     font-weight: 400;
     font-family: 'Work Sans', sans-serif;
     outline: none;
-    border: solid 1px #000;
+    border: solid 1px #232524;
 }
 
 /* dark mode */

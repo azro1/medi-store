@@ -32,23 +32,30 @@
 .navbar .logout {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
 }
 
 .navbar .displayname {
     flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 .navbar .displayname p {
     color: #fff;
     font-family: 'Work Sans', sans-serif;
-    font-size: 1rem;
-    margin-right: 1.2rem;
+    font-size: 1.1rem;
     white-space: nowrap;
 }
 
+.navbar .displayname span {
+    font-size: 25px;
+    color: red;
+}
+
 .navbar .logout button {
-    padding: 0.725rem;
+    padding: 0.5rem 1rem;
     font-family: 'Work Sans', sans-serif;
     border-radius: 0.5rem;
     background: #232524;
@@ -63,7 +70,7 @@
 .navbar .logout a {
     font-family: 'Work Sans', sans-serif;
     background: #232524;
-    padding: 0.725rem;
+    padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 0.5rem;
     color: #fff;
@@ -99,7 +106,6 @@
 
 
 @media only screen and (max-width: 436px)  {
-
     .navbar .logout {
       flex-wrap: wrap;
     }

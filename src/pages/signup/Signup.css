@@ -15,22 +15,27 @@
   
   .signup-form .form-control label {
       display: block;
-      padding-bottom: 0.938rem;
+      padding-bottom: 0.75rem;
       width: 100%;
   }
   
   .signup-form .form-control span {
       display: block;
-      font-size: 1.1rem;
+      font-family: 'Work Sans', sans-serif;
+      padding-bottom: 0.5rem;
+      font-size: 1rem;
   }
   
   .signup-form .form-control input {
       display: block;
-      padding: 0.825rem;
+      padding: 0.5rem;
       width: 100%;
       font-family: 'Work Sans', sans-serif;
-      font-size: 1rem;
       outline: none;
+  }
+
+  .signup-btn {
+    margin-top: 0.5rem;
   }
   
     /* dark mode */
