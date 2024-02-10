@@ -1,21 +1,21 @@
-import { Link } from 'react-router-dom'
-import storeLogo from '../../assets/logo.svg'
-import { useTheme } from '../../hooks/useTheme'
-import { useLogout } from '../../hooks/useLogout'
-import { useAuthContext } from '../../hooks/useAuthContext'
+import { Link } from 'react-router-dom';
+import storeLogo from '../../assets/logo.svg';
+import { useTheme } from '../../hooks/useTheme';
+import { useLogout } from '../../hooks/useLogout';
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 // styles
-import './Navbar.css'
+import './Navbar.css';
 
 const Navbar = () => {
-const { color } = useTheme()
-const { logout } = useLogout()
-const { user } = useAuthContext()
+  const { color } = useTheme();
+  const { logout } = useLogout();
+  const { user } = useAuthContext();
 
   return (
     <div className='navbar' style={{ background: color }}>
       <nav>
-        <Link to='/dashboard' className='storename' replace>
+        <Link to='/dashboard' className='storename'>
           <h1>MediStore</h1>
           <img src={storeLogo} alt='medication' />
         </Link>
@@ -24,15 +24,15 @@ const { user } = useAuthContext()
           <div className='logout'>
             <span className='displayname'>
               <p>Hi, {user.displayName}</p>
+              <span>👋</span>
             </span>
             <Link
               to='/create'
               style={{
-                backgroundColor: color === '#232524' ? '#A9938B' : '#232524'
+                backgroundColor: color === '#232524' ? '#A9938B' : '#232524',
               }}
-              replace
             >
-              Add Medication
+              Add Meds
             </Link>
             <button
               style={{
@@ -47,17 +47,13 @@ const { user } = useAuthContext()
 
         {!user && (
           <div className='login'>
-            <Link to='/login' replace>
-              Login
-            </Link>
-            <Link to='/signup' replace>
-              Signup
-            </Link>
+            <Link to='/login'>Login</Link>
+            <Link to='/signup'>Signup</Link>
           </div>
         )}
       </nav>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

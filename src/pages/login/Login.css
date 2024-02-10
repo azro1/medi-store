@@ -2,38 +2,44 @@
     max-width: 85vw;
     margin: 0 auto;
     padding-bottom: 2.8rem;
-  }
-  
-  .login-form .form-control {
-      max-width: 23.5rem;
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-      justify-content: center;
-      margin: 0 auto;
-  }
-  
-  .login-form .form-control label {
-      display: block;
-      padding-bottom: 0.938rem;
-      width: 100%;
-  }
-  
-  .login-form .form-control span {
-      display: block;
-      font-size: 1.1rem;
-  }
-  
-  .login-form .form-control input {
-      display: block;
-      padding: 0.825rem;
-      width: 100%;
-      font-family: 'Work Sans', sans-serif;
-      font-size: 1rem;
-      outline: none;
-  }
+}
 
-  /* dark mode */
-  .login-form.dark .form-control label span {
-      color: #e4e4e4;
-  }
+.login-form .form-control {
+    max-width: 23.5rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.login-form .form-control label {
+    display: block;
+    padding-bottom: 0.75rem;
+    width: 100%;
+}
+
+.login-form .form-control span {
+    display: block;
+    font-family: 'Work Sans', sans-serif;
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.login-form .form-control input {
+    display: block;
+    padding: 0.5rem;
+    width: 100%;
+    font-family: 'Work Sans', sans-serif;
+    outline: none;
+}
+
+.login-btn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.7rem;
+}
+
+/* dark mode */
+.login-form.dark .form-control label span {
+    color: #e4e4e4;
+}

@@ -185,7 +185,7 @@ const Create = () => {
               ref={ingredientInput}
               onChange={(e) => setNewIngredient(e.target.value)}
             />
-            <button onClick={handleAdd} className='form-btn btn'>
+            <button onClick={handleAdd} className='ingr-btn btn'>
               Add
             </button>
           </div>

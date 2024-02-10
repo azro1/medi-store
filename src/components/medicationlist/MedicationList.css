@@ -22,14 +22,14 @@
   font-size: 1.6rem;
   margin-bottom: 1rem;
   line-height: 1;
-  color: #000;
 }
 
 .medication-list .card p {
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.3;
-  color: #000;
+  font-family: 'Work Sans', sans-serif;
+  color: #232524;
 }
 
 .medication-list .card p:nth-last-child(2) {
@@ -38,7 +38,7 @@
 
 .medication-list .card span {
   font-family: 'Work Sans', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 300;
   color: #000;
 }
@@ -48,7 +48,8 @@
 .medication-list .card.dark {
   background: #555;
 }
-.medication-list .card.dark h3, 
+
+.medication-list .card.dark h3,
 .medication-list .card.dark p,
 .medication-list .card.dark span {
   color: #e4e4e4;
@@ -63,9 +64,9 @@
     grid-template-columns: repeat(auto-fill, minmax(270px, .6fr));
     justify-content: center;
   }
-  
+
   .medication-list .card h3 {
-     line-height: 1.2;
+    line-height: 1.2;
   }
 }
 

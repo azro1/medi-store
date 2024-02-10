@@ -10,7 +10,7 @@
     margin-bottom: 0;
     word-wrap: break-word;
     line-height: 1.3;
-    padding-top: 0.7rem;;
+    padding-top: 0.7rem;
 }
 
 .medication .info {
@@ -29,9 +29,10 @@
 }
 
 .medication .info p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     line-height: 1.4;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .medication .info span {
@@ -43,11 +44,11 @@
 }
 
 .medication .info section:last-child p:first-child span::after {
-   content: ",";
+    content: ",";
 }
 
 .medication .info section p:first-child span:last-child::after {
-   content: "";
+    content: "";
 }
 
 .medication .buttons {
@@ -60,19 +61,21 @@
     font-family: 'Work Sans', sans-serif;
     border: 0.125rem solid #000;
     border-radius: 0.5rem;
-    padding: 0.625rem;   
+    padding: 0.5rem 1.5rem;
     text-decoration: none;
     background: #fff;
     color: #000;
     transition: 0.2s;
+    margin-top: 0.5rem;
 }
 
 .medication .buttons .delete:hover {
     background: #e03c31;
     color: #fff;
 }
+
 .medication .buttons a:hover {
-    background: #FFA500;
+    background: #B8860B;
     color: #fff;
 }
 
@@ -84,23 +87,23 @@
 }
 
 
-@media only screen and (max-width: 960px)  {
+@media only screen and (max-width: 960px) {
     .medication {
         max-width: 85vw;
     }
 }
 
 /* media queries */
-@media only screen and (max-width: 712px)  {
+@media only screen and (max-width: 712px) {
     .medication .info .dates {
         align-self: flex-start;
         align-items: flex-start;
     }
 }
 
-@media only screen and (max-width: 425px)  {
+@media only screen and (max-width: 425px) {
     .medication .buttons {
-       text-align: center;
-       align-items: start;
+        text-align: center;
+        align-items: start;
     }
 }

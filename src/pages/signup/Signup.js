@@ -34,8 +34,8 @@ const Signup = () => {
             <span>Password:</span>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
-        {!isPending && <button className="btn">sign up</button>}
-        {isPending && <button className="btn" disabled>processing...</button>}
+        {!isPending && <button className="signup-btn btn">Sign up</button>}
+        {isPending && <button className="signup-btn btn" disabled>processing...</button>}
         
       </div>
     </form>

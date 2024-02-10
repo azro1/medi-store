@@ -1,6 +1,5 @@
 .navbar {
     padding: 1.5rem;
-    background: #141414
 }
 
 .navbar nav {
@@ -33,26 +32,33 @@
 .navbar .logout {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
 }
 
 .navbar .displayname {
     flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 .navbar .displayname p {
     color: #fff;
     font-family: 'Work Sans', sans-serif;
     font-size: 1rem;
-    margin-right: 1.2rem;
     white-space: nowrap;
 }
 
+.navbar .displayname span {
+    font-size: 25px;
+    color: red;
+}
+
 .navbar .logout button {
-    padding: 0.725rem;
+    padding: 0.5rem 1rem;
     font-family: 'Work Sans', sans-serif;
     border-radius: 0.5rem;
-    background: #2F4F4F;
+    background: #232524;
     cursor: pointer;
     font-size: 1rem;
     color: #fff;
@@ -63,8 +69,8 @@
 
 .navbar .logout a {
     font-family: 'Work Sans', sans-serif;
-    background: #2F4F4F;
-    padding: 0.725rem;
+    background: #232524;
+    padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 0.5rem;
     color: #fff;
@@ -86,24 +92,25 @@
 }
 
 /* media queries */
-@media only screen and (max-width: 920px)  {
+@media only screen and (max-width: 920px) {
 
     .navbar nav {
         flex-direction: column;
         align-items: flex-end;
     }
 
-    .navbar .logout, .login {
-        margin: 2rem 0 1.5rem;
+    .navbar .logout,
+    .login {
+        margin: 2rem 0 1rem;
     }
+
 }
 
 
-@media only screen and (max-width: 436px)  {
+@media only screen and (max-width: 436px) {
 
     .navbar .logout {
-      flex-wrap: wrap;
+        flex-wrap: wrap;
     }
+
 }
-
-
