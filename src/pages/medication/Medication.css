@@ -29,9 +29,10 @@
 }
 
 .medication .info p {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
     line-height: 1.4;
-    font-family: 'Verdana', sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .medication .info span {

@@ -26,9 +26,10 @@
 }
 
 .medication-list .card p {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
   line-height: 1.3;
-  font-family: 'Verdana', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   color: #232524;
 }
 
@@ -38,7 +39,7 @@
 
 .medication-list .card span {
   font-family: 'Work Sans', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 300;
   color: #000;
 }
