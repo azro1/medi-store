@@ -23,7 +23,7 @@ const Medication = () => {
         {error && <p style={{position: "relative", top: "1rem"}} className={`error ${mode}`}>{error}</p>}
         {medication && (
         <>
-        <h2 className={`page-title ${mode}`} style={{ color: color === '#232524' ? '#AC926B' : color }}>{medication.name}</h2>
+        <h2 className={`page-title ${mode}`} style={{ color: color === '#232524' ? '#A9938B' : color }}>{medication.name}</h2>
 
         <div className="info">
             <div className="dates">

@@ -4,7 +4,7 @@ import modeSwitch from '../../assets/switch.svg'
 // styles
 import './ThemeSelector.css'
 
-const themeColors = ["#848D74", "#FFA07A", "#788C5E"]
+const themeColors = ["#007B7E", "#B8860B", "#848D74"]
 
 const ThemeSelector = () => {
   const { changeColor, mode, changeMode } = useTheme()

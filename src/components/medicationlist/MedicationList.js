@@ -16,7 +16,7 @@ const MedicationList = ({ medications }) => {
           style={{ textDecoration: 'none' }}
           key={medication.id}
         >
-          <h3 style={{ color: color === '#232524' ? '#AC926B' : color }}>
+          <h3 style={{ color: color === '#232524' ? '#A9938B' : color }}>
             {medication.name}
           </h3>
           <p>
