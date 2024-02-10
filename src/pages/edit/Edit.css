@@ -1,4 +1,4 @@
-.edit-form{
+.edit-form {
     max-width: 85vw;
     margin: 0 auto;
     padding-bottom: 2.8rem;
@@ -23,7 +23,7 @@
 }
 
 .edit-form .ingredients {
-    display: flex;  
+    display: flex;
     align-items: center;
     gap: 0.5rem;
     margin-top: 0.25rem;

@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Changa';
   src: url('./fonts/Changa/Changa-ExtraBold.woff2') format('woff2'),
-      url('./fonts/Changa/Changa-ExtraBold.woff') format('woff');
+    url('./fonts/Changa/Changa-ExtraBold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 @font-face {
   font-family: 'Changa';
   src: url('./fonts/Changa/Changa-Medium.woff2') format('woff2'),
-      url('./fonts/Changa/Changa-Medium.woff') format('woff');
+    url('./fonts/Changa/Changa-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -19,7 +19,7 @@
 @font-face {
   font-family: 'Changa';
   src: url('./fonts/Changa/Changa-SemiBold.woff2') format('woff2'),
-      url('./fonts/Changa/Changa-SemiBold.woff') format('woff');
+    url('./fonts/Changa/Changa-SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -28,7 +28,7 @@
 @font-face {
   font-family: 'Changa';
   src: url('./fonts/Changa/Changa-Bold.woff2') format('woff2'),
-      url('./fonts/Changa/Changa-Bold.woff') format('woff');
+    url('./fonts/Changa/Changa-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -37,7 +37,7 @@
 @font-face {
   font-family: 'Work Sans';
   src: url('./fonts/WorkSans/WorkSans-Light.woff2') format('woff2'),
-      url('./fonts/WorkSans/WorkSans-Light.woff') format('woff');
+    url('./fonts/WorkSans/WorkSans-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -46,7 +46,7 @@
 @font-face {
   font-family: 'Work Sans';
   src: url('./fonts/WorkSans/WorkSans-Regular.woff2') format('woff2'),
-      url('./fonts/WorkSans/WorkSans-Regular.woff') format('woff');
+    url('./fonts/WorkSans/WorkSans-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -55,7 +55,7 @@
 @font-face {
   font-family: 'Work Sans';
   src: url('./fonts/WorkSans/WorkSans-Bold.woff2') format('woff2'),
-      url('./fonts/WorkSans/WorkSans-Bold.woff') format('woff');
+    url('./fonts/WorkSans/WorkSans-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -71,11 +71,14 @@ body {
   font-family: 'Changa', sans-serif;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
-.loading, .error {
+.loading,
+.error {
   text-align: center;
   margin: 2.5rem 0;
   font-size: 1.3rem;
@@ -111,19 +114,17 @@ html, body, #root {
   color: #e4e4e4;
 }
 
-.loading.dark, 
+.loading.dark,
 .error.dark {
   color: #e4e4e4;
 }
 
 
 /* media queries */
-@media only screen and (max-width: 480px)  {
-  .loading, .error {
-     margin: 1rem 0 1.5rem;
+@media only screen and (max-width: 480px) {
+
+  .loading,
+  .error {
+    margin: 1rem 0 1.5rem;
   }
-}
-
-@media only screen and (max-width: 630px)  {
-
 }

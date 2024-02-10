@@ -1,44 +1,44 @@
 .signup-form {
-    max-width: 85vw;
-    margin: 0 auto;
-    padding-bottom: 2.8rem;
-  }
-  
-  .signup-form .form-control {
-      max-width: 23.5rem;
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-      justify-content: center;
-      margin: 0 auto;
-  }
-  
-  .signup-form .form-control label {
-      display: block;
-      padding-bottom: 0.75rem;
-      width: 100%;
-  }
-  
-  .signup-form .form-control span {
-      display: block;
-      font-family: 'Work Sans', sans-serif;
-      padding-bottom: 0.5rem;
-      font-size: 1rem;
-  }
-  
-  .signup-form .form-control input {
-      display: block;
-      padding: 0.5rem;
-      width: 100%;
-      font-family: 'Work Sans', sans-serif;
-      outline: none;
-  }
+  max-width: 85vw;
+  margin: 0 auto;
+  padding-bottom: 2.8rem;
+}
 
-  .signup-btn {
-    margin-top: 0.5rem;
-  }
-  
-    /* dark mode */
-    .signup-form.dark .form-control label span {
-      color: #e4e4e4;
-  }
+.signup-form .form-control {
+  max-width: 23.5rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.signup-form .form-control label {
+  display: block;
+  padding-bottom: 0.75rem;
+  width: 100%;
+}
+
+.signup-form .form-control span {
+  display: block;
+  font-family: 'Work Sans', sans-serif;
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.signup-form .form-control input {
+  display: block;
+  padding: 0.5rem;
+  width: 100%;
+  font-family: 'Work Sans', sans-serif;
+  outline: none;
+}
+
+.signup-btn {
+  margin-top: 0.5rem;
+}
+
+/* dark mode */
+.signup-form.dark .form-control label span {
+  color: #e4e4e4;
+}

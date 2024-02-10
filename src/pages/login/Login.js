@@ -29,7 +29,7 @@ const Login = () => {
             <span>Password:</span>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
-        {!isPending && <button className="login-btn btn" >login</button>}
+        {!isPending && <button className="login-btn btn" >Login</button>}
         {isPending && <button className="login-btn btn" disabled>loading...</button>}
       </div>
     </form>
